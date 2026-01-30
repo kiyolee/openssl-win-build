@@ -1,3 +1,5 @@
+/* clang-format off */
+/* clang-format on */
 /*
  * Copyright 2016-2021 The OpenSSL Project Authors. All Rights Reserved.
  *
@@ -11,9 +13,13 @@
  */
 
 #ifndef OSSL_CRYPTO_DSO_CONF_H
-# define OSSL_CRYPTO_DSO_CONF_H
-# pragma once
+#define OSSL_CRYPTO_DSO_CONF_H
+#pragma once
 
+/* clang-format off */
 # define DSO_WIN32
+/* clang-format on */
+/* clang-format off */
 # define DSO_EXTENSION ".dll"
+/* clang-format on */
 #endif

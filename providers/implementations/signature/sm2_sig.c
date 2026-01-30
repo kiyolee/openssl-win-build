@@ -9,7 +9,9 @@
 /*
  * Generated from sm2_sig.c.in for https://github.com/kiyolee/openssl3-win-build.git.
  */
+/* clang-format off */
 
+/* clang-format on */
 
 /*
  * ECDSA low level APIs are deprecated for public use, but still ok for
@@ -81,7 +83,7 @@ typedef struct {
 
     /* The Algorithm Identifier of the combined signature algorithm */
     unsigned char aid_buf[OSSL_MAX_ALGORITHM_ID_SIZE];
-    size_t  aid_len;
+    size_t aid_len;
 
     /* main digest */
     EVP_MD *md;
@@ -97,7 +99,7 @@ static int sm2sig_set_mdname(PROV_SM2_CTX *psm2ctx, const char *mdname)
 {
     if (psm2ctx->md == NULL) /* We need an SM3 md to compare with */
         psm2ctx->md = EVP_MD_fetch(psm2ctx->libctx, psm2ctx->mdname,
-                                   psm2ctx->propq);
+            psm2ctx->propq);
     if (psm2ctx->md == NULL)
         return 0;
 
@@ -113,7 +115,7 @@ static int sm2sig_set_mdname(PROV_SM2_CTX *psm2ctx, const char *mdname)
     if (strlen(mdname) >= sizeof(psm2ctx->mdname)
         || !EVP_MD_is_a(psm2ctx->md, mdname)) {
         ERR_raise_data(ERR_LIB_PROV, PROV_R_INVALID_DIGEST, "digest=%s",
-                       mdname);
+            mdname);
         return 0;
     }
 
@@ -139,12 +141,12 @@ static void *sm2sig_newctx(void *provctx, const char *propq)
 }
 
 static int sm2sig_signature_init(void *vpsm2ctx, void *ec,
-                                 const OSSL_PARAM params[])
+    const OSSL_PARAM params[])
 {
     PROV_SM2_CTX *psm2ctx = (PROV_SM2_CTX *)vpsm2ctx;
 
     if (!ossl_prov_is_running()
-            || psm2ctx == NULL)
+        || psm2ctx == NULL)
         return 0;
 
     if (ec == NULL && psm2ctx->ec == NULL) {
@@ -163,7 +165,7 @@ static int sm2sig_signature_init(void *vpsm2ctx, void *ec,
 }
 
 static int sm2sig_sign(void *vpsm2ctx, unsigned char *sig, size_t *siglen,
-                       size_t sigsize, const unsigned char *tbs, size_t tbslen)
+    size_t sigsize, const unsigned char *tbs, size_t tbslen)
 {
     PROV_SM2_CTX *ctx = (PROV_SM2_CTX *)vpsm2ctx;
     int ret;
@@ -191,7 +193,7 @@ static int sm2sig_sign(void *vpsm2ctx, unsigned char *sig, size_t *siglen,
 }
 
 static int sm2sig_verify(void *vpsm2ctx, const unsigned char *sig, size_t siglen,
-                         const unsigned char *tbs, size_t tbslen)
+    const unsigned char *tbs, size_t tbslen)
 {
     PROV_SM2_CTX *ctx = (PROV_SM2_CTX *)vpsm2ctx;
 
@@ -210,7 +212,7 @@ static void free_md(PROV_SM2_CTX *ctx)
 }
 
 static int sm2sig_digest_signverify_init(void *vpsm2ctx, const char *mdname,
-                                         void *ec, const OSSL_PARAM params[])
+    void *ec, const OSSL_PARAM params[])
 {
     PROV_SM2_CTX *ctx = (PROV_SM2_CTX *)vpsm2ctx;
     int md_nid;
@@ -255,7 +257,7 @@ static int sm2sig_digest_signverify_init(void *vpsm2ctx, const char *mdname,
 
     ret = 1;
 
- error:
+error:
     return ret;
 }
 
@@ -271,7 +273,7 @@ static int sm2sig_compute_z_digest(PROV_SM2_CTX *ctx)
         if ((z = OPENSSL_zalloc(ctx->mdsize)) == NULL
             /* get hashed prefix 'z' of tbs message */
             || !ossl_sm2_compute_z_digest(z, ctx->md, ctx->id, ctx->id_len,
-                                          ctx->ec)
+                ctx->ec)
             || !EVP_DigestUpdate(ctx->mdctx, z, ctx->mdsize))
             ret = 0;
         OPENSSL_free(z);
@@ -281,7 +283,7 @@ static int sm2sig_compute_z_digest(PROV_SM2_CTX *ctx)
 }
 
 int sm2sig_digest_signverify_update(void *vpsm2ctx, const unsigned char *data,
-                                    size_t datalen)
+    size_t datalen)
 {
     PROV_SM2_CTX *psm2ctx = (PROV_SM2_CTX *)vpsm2ctx;
 
@@ -293,7 +295,7 @@ int sm2sig_digest_signverify_update(void *vpsm2ctx, const unsigned char *data,
 }
 
 int sm2sig_digest_sign_final(void *vpsm2ctx, unsigned char *sig, size_t *siglen,
-                             size_t sigsize)
+    size_t sigsize)
 {
     PROV_SM2_CTX *psm2ctx = (PROV_SM2_CTX *)vpsm2ctx;
     unsigned char digest[EVP_MAX_MD_SIZE];
@@ -308,16 +310,15 @@ int sm2sig_digest_sign_final(void *vpsm2ctx, unsigned char *sig, size_t *siglen,
      */
     if (sig != NULL) {
         if (!(sm2sig_compute_z_digest(psm2ctx)
-              && EVP_DigestFinal_ex(psm2ctx->mdctx, digest, &dlen)))
+                && EVP_DigestFinal_ex(psm2ctx->mdctx, digest, &dlen)))
             return 0;
     }
 
     return sm2sig_sign(vpsm2ctx, sig, siglen, sigsize, digest, (size_t)dlen);
 }
 
-
 int sm2sig_digest_verify_final(void *vpsm2ctx, const unsigned char *sig,
-                               size_t siglen)
+    size_t siglen)
 {
     PROV_SM2_CTX *psm2ctx = (PROV_SM2_CTX *)vpsm2ctx;
     unsigned char digest[EVP_MAX_MD_SIZE];
@@ -332,7 +333,7 @@ int sm2sig_digest_verify_final(void *vpsm2ctx, const unsigned char *sig,
         return 0;
 
     if (!(sm2sig_compute_z_digest(psm2ctx)
-          && EVP_DigestFinal_ex(psm2ctx->mdctx, digest, &dlen)))
+            && EVP_DigestFinal_ex(psm2ctx->mdctx, digest, &dlen)))
         return 0;
 
     return sm2sig_verify(vpsm2ctx, sig, siglen, digest, (size_t)dlen);
@@ -382,7 +383,7 @@ static void *sm2sig_dupctx(void *vpsm2ctx)
     if (srcctx->mdctx != NULL) {
         dstctx->mdctx = EVP_MD_CTX_new();
         if (dstctx->mdctx == NULL
-                || !EVP_MD_CTX_copy_ex(dstctx->mdctx, srcctx->mdctx))
+            || !EVP_MD_CTX_copy_ex(dstctx->mdctx, srcctx->mdctx))
             goto err;
     }
 
@@ -395,11 +396,12 @@ static void *sm2sig_dupctx(void *vpsm2ctx)
     }
 
     return dstctx;
- err:
+err:
     sm2sig_freectx(dstctx);
     return NULL;
 }
 
+/* clang-format off */
 /* Machine generated by util/perl/OpenSSL/paramnames.pm */
 #ifndef sm2sig_get_ctx_params_list
 static const OSSL_PARAM sm2sig_get_ctx_params_list[] = {
@@ -494,6 +496,7 @@ static int sm2sig_get_ctx_params_decoder
 }
 #endif
 /* End of machine generated */
+/* clang-format on */
 
 static int sm2sig_get_ctx_params(void *vpsm2ctx, OSSL_PARAM *params)
 {
@@ -505,28 +508,27 @@ static int sm2sig_get_ctx_params(void *vpsm2ctx, OSSL_PARAM *params)
 
     if (p.algid != NULL
         && !OSSL_PARAM_set_octet_string(p.algid,
-                                        psm2ctx->aid_len == 0 ? NULL : psm2ctx->aid_buf,
-                                        psm2ctx->aid_len))
+            psm2ctx->aid_len == 0 ? NULL : psm2ctx->aid_buf,
+            psm2ctx->aid_len))
         return 0;
 
     if (p.size != NULL && !OSSL_PARAM_set_size_t(p.size, psm2ctx->mdsize))
         return 0;
 
     if (p.digest != NULL
-            && !OSSL_PARAM_set_utf8_string(p.digest, psm2ctx->md == NULL
-                                                     ? psm2ctx->mdname
-                                                     : EVP_MD_get0_name(psm2ctx->md)))
+        && !OSSL_PARAM_set_utf8_string(p.digest, psm2ctx->md == NULL ? psm2ctx->mdname : EVP_MD_get0_name(psm2ctx->md)))
         return 0;
 
     return 1;
 }
 
 static const OSSL_PARAM *sm2sig_gettable_ctx_params(ossl_unused void *vpsm2ctx,
-                                                    ossl_unused void *provctx)
+    ossl_unused void *provctx)
 {
     return sm2sig_get_ctx_params_list;
 }
 
+/* clang-format off */
 /* Machine generated by util/perl/OpenSSL/paramnames.pm */
 #ifndef sm2sig_set_ctx_params_list
 static const OSSL_PARAM sm2sig_set_ctx_params_list[] = {
@@ -621,6 +623,7 @@ static int sm2sig_set_ctx_params_decoder
 }
 #endif
 /* End of machine generated */
+/* clang-format on */
 
 static int sm2sig_set_ctx_params(void *vpsm2ctx, const OSSL_PARAM params[])
 {
@@ -655,8 +658,7 @@ static int sm2sig_set_ctx_params(void *vpsm2ctx, const OSSL_PARAM params[])
      * If there is ever any different digest algorithm allowed with SM2
      * this needs to be adjusted accordingly.
      */
-    if (p.size != NULL && (!OSSL_PARAM_get_size_t(p.size, &mdsize)
-                           || mdsize != psm2ctx->mdsize))
+    if (p.size != NULL && (!OSSL_PARAM_get_size_t(p.size, &mdsize) || mdsize != psm2ctx->mdsize))
         return 0;
 
     if (p.digest != NULL) {
@@ -675,7 +677,7 @@ static int sm2sig_set_ctx_params(void *vpsm2ctx, const OSSL_PARAM params[])
 }
 
 static const OSSL_PARAM *sm2sig_settable_ctx_params(ossl_unused void *vpsm2ctx,
-                                                    ossl_unused void *provctx)
+    ossl_unused void *provctx)
 {
     return sm2sig_set_ctx_params_list;
 }
@@ -727,32 +729,32 @@ const OSSL_DISPATCH ossl_sm2_signature_functions[] = {
     { OSSL_FUNC_SIGNATURE_VERIFY_INIT, (void (*)(void))sm2sig_signature_init },
     { OSSL_FUNC_SIGNATURE_VERIFY, (void (*)(void))sm2sig_verify },
     { OSSL_FUNC_SIGNATURE_DIGEST_SIGN_INIT,
-      (void (*)(void))sm2sig_digest_signverify_init },
+        (void (*)(void))sm2sig_digest_signverify_init },
     { OSSL_FUNC_SIGNATURE_DIGEST_SIGN_UPDATE,
-      (void (*)(void))sm2sig_digest_signverify_update },
+        (void (*)(void))sm2sig_digest_signverify_update },
     { OSSL_FUNC_SIGNATURE_DIGEST_SIGN_FINAL,
-      (void (*)(void))sm2sig_digest_sign_final },
+        (void (*)(void))sm2sig_digest_sign_final },
     { OSSL_FUNC_SIGNATURE_DIGEST_VERIFY_INIT,
-      (void (*)(void))sm2sig_digest_signverify_init },
+        (void (*)(void))sm2sig_digest_signverify_init },
     { OSSL_FUNC_SIGNATURE_DIGEST_VERIFY_UPDATE,
-      (void (*)(void))sm2sig_digest_signverify_update },
+        (void (*)(void))sm2sig_digest_signverify_update },
     { OSSL_FUNC_SIGNATURE_DIGEST_VERIFY_FINAL,
-      (void (*)(void))sm2sig_digest_verify_final },
+        (void (*)(void))sm2sig_digest_verify_final },
     { OSSL_FUNC_SIGNATURE_FREECTX, (void (*)(void))sm2sig_freectx },
     { OSSL_FUNC_SIGNATURE_DUPCTX, (void (*)(void))sm2sig_dupctx },
     { OSSL_FUNC_SIGNATURE_GET_CTX_PARAMS, (void (*)(void))sm2sig_get_ctx_params },
     { OSSL_FUNC_SIGNATURE_GETTABLE_CTX_PARAMS,
-      (void (*)(void))sm2sig_gettable_ctx_params },
+        (void (*)(void))sm2sig_gettable_ctx_params },
     { OSSL_FUNC_SIGNATURE_SET_CTX_PARAMS, (void (*)(void))sm2sig_set_ctx_params },
     { OSSL_FUNC_SIGNATURE_SETTABLE_CTX_PARAMS,
-      (void (*)(void))sm2sig_settable_ctx_params },
+        (void (*)(void))sm2sig_settable_ctx_params },
     { OSSL_FUNC_SIGNATURE_GET_CTX_MD_PARAMS,
-      (void (*)(void))sm2sig_get_ctx_md_params },
+        (void (*)(void))sm2sig_get_ctx_md_params },
     { OSSL_FUNC_SIGNATURE_GETTABLE_CTX_MD_PARAMS,
-      (void (*)(void))sm2sig_gettable_ctx_md_params },
+        (void (*)(void))sm2sig_gettable_ctx_md_params },
     { OSSL_FUNC_SIGNATURE_SET_CTX_MD_PARAMS,
-      (void (*)(void))sm2sig_set_ctx_md_params },
+        (void (*)(void))sm2sig_set_ctx_md_params },
     { OSSL_FUNC_SIGNATURE_SETTABLE_CTX_MD_PARAMS,
-      (void (*)(void))sm2sig_settable_ctx_md_params },
+        (void (*)(void))sm2sig_settable_ctx_md_params },
     OSSL_DISPATCH_END
 };
