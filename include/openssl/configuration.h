@@ -11,21 +11,22 @@
  */
 
 #ifndef OPENSSL_CONFIGURATION_H
-# define OPENSSL_CONFIGURATION_H
-# pragma once
+#define OPENSSL_CONFIGURATION_H
+#pragma once
 
-# ifdef  __cplusplus
+#ifdef __cplusplus
 extern "C" {
-# endif
+#endif
 
-# ifdef OPENSSL_ALGORITHM_DEFINES
-#  error OPENSSL_ALGORITHM_DEFINES no longer supported
-# endif
+#ifdef OPENSSL_ALGORITHM_DEFINES
+#error OPENSSL_ALGORITHM_DEFINES no longer supported
+#endif
 
 /*
  * OpenSSL was configured with the following options:
  */
 
+/* clang-format off */
 #if !defined(_M_ARM) && !defined(_M_ARM64)
 #ifdef _WIN64
 # ifndef OPENSSL_SYS_WIN64A
@@ -163,44 +164,61 @@ extern "C" {
 #  define OPENSSL_NO_DYNAMIC_ENGINE
 # endif
 
+/* clang-format on */
 
 /* Generate 80386 code? */
+/* clang-format off */
 # undef I386_ONLY
+/* clang-format on */
 
 /*
  * The following are cipher-specific, but are part of the public API.
  */
-# if !defined(OPENSSL_SYS_UEFI)
+#if !defined(OPENSSL_SYS_UEFI)
+    /* clang-format off */
 #ifdef _WIN64
 #  undef BN_LLONG
 #else
 #  define BN_LLONG
 #endif
-/* Only one for the following should be defined */
+    /* clang-format on */
+    /* Only one for the following should be defined */
+    /* clang-format off */
 #  undef SIXTY_FOUR_BIT_LONG
+    /* clang-format on */
 #ifdef _WIN64
+    /* clang-format off */
 #  define SIXTY_FOUR_BIT
+    /* clang-format on */
+    /* clang-format off */
 #  undef THIRTY_TWO_BIT
+/* clang-format on */
 #else
+    /* clang-format off */
 #  undef SIXTY_FOUR_BIT
+    /* clang-format on */
+    /* clang-format off */
 #  define THIRTY_TWO_BIT
+/* clang-format on */
 #endif
-# endif
+#endif
 
+/* clang-format off */
 #if defined(_M_ARM) || defined(_M_ARM64)
 # define RC4_INT unsigned char
 #else
 # define RC4_INT unsigned int
 #endif
+/* clang-format on */
 
-# if defined(OPENSSL_NO_COMP) || (defined(OPENSSL_NO_BROTLI) && defined(OPENSSL_NO_ZSTD) && defined(OPENSSL_NO_ZLIB))
-#  define OPENSSL_NO_COMP_ALG
-# else
-#  undef  OPENSSL_NO_COMP_ALG
-# endif
+#if defined(OPENSSL_NO_COMP) || (defined(OPENSSL_NO_BROTLI) && defined(OPENSSL_NO_ZSTD) && defined(OPENSSL_NO_ZLIB))
+#define OPENSSL_NO_COMP_ALG
+#else
+#undef OPENSSL_NO_COMP_ALG
+#endif
 
-# ifdef  __cplusplus
+#ifdef __cplusplus
 }
-# endif
+#endif
 
-#endif                          /* OPENSSL_CONFIGURATION_H */
+#endif /* OPENSSL_CONFIGURATION_H */
