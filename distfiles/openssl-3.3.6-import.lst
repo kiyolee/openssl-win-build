@@ -1794,6 +1794,7 @@ doc/man3/BIO_s_null.pod
 doc/man3/BIO_s_socket.pod
 doc/man3/BIO_sendmmsg.pod
 doc/man3/BIO_set_callback.pod
+doc/man3/BIO_set_flags.pod
 doc/man3/BIO_should_retry.pod
 doc/man3/BIO_socket_wait.pod
 doc/man3/BN_BLINDING_new.pod
@@ -1819,6 +1820,7 @@ doc/man3/BN_zero.pod
 doc/man3/BUF_MEM_new.pod
 doc/man3/CMS_EncryptedData_decrypt.pod
 doc/man3/CMS_EncryptedData_encrypt.pod
+doc/man3/CMS_EncryptedData_set1_key.pod
 doc/man3/CMS_EnvelopedData_create.pod
 doc/man3/CMS_add0_cert.pod
 doc/man3/CMS_add1_recipient_cert.pod
@@ -1900,6 +1902,7 @@ doc/man3/ERR_remove_state.pod
 doc/man3/ERR_set_mark.pod
 doc/man3/EVP_ASYM_CIPHER_free.pod
 doc/man3/EVP_BytesToKey.pod
+doc/man3/EVP_CIPHER_CTX_get_app_data.pod
 doc/man3/EVP_CIPHER_CTX_get_cipher_data.pod
 doc/man3/EVP_CIPHER_CTX_get_original_iv.pod
 doc/man3/EVP_CIPHER_meth_new.pod
@@ -4834,6 +4837,7 @@ test/recipes/80-test_cms_data/no_md_attr.cms
 test/recipes/80-test_cms_data/pkcs7-md4-encrypted.pem
 test/recipes/80-test_cms_data/pkcs7-md4.pem
 test/recipes/80-test_cmsapi.t
+test/recipes/80-test_cmsapi_data/encDataWithTooLongIV.pem
 test/recipes/80-test_cmsapi_data/encryptedData.der
 test/recipes/80-test_ct.t
 test/recipes/80-test_dane.t
@@ -5109,6 +5113,7 @@ test/stack_test.c
 test/sysdefault.cnf
 test/sysdefaulttest.c
 test/test.cnf
+test/test_asn1_genconf.cnf
 test/test_asn1_parse.cnf
 test/test_test.c
 test/testcrl.pem
@@ -5190,10 +5195,6 @@ util/add-depends.pl
 util/build.info
 util/c-compress-test.pl
 util/cavs-to-evptest.pl
-util/check-format-commit.sh
-util/check-format-test-negatives.c
-util/check-format-test-positives.c
-util/check-format.pl
 util/check-malloc-errs
 util/checkplatformsyms.pl
 util/ck_errf.pl

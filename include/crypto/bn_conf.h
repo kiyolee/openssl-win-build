@@ -1,3 +1,5 @@
+/* clang-format off */
+/* clang-format on */
 /*
  * Copyright 2016-2021 The OpenSSL Project Authors. All Rights Reserved.
  *
@@ -11,8 +13,8 @@
  */
 
 #ifndef OSSL_CRYPTO_BN_CONF_H
-# define OSSL_CRYPTO_BN_CONF_H
-# pragma once
+#define OSSL_CRYPTO_BN_CONF_H
+#pragma once
 
 /*
  * The contents of this file are not used in the UEFI build, as
@@ -23,13 +25,23 @@
 /* Should we define BN_DIV2W here? */
 
 /* Only one for the following should be defined */
+/* clang-format off */
 #undef SIXTY_FOUR_BIT_LONG
 #ifdef _WIN64
+    /* clang-format on */
+    /* clang-format off */
 #define SIXTY_FOUR_BIT
+    /* clang-format on */
+    /* clang-format off */
 #undef THIRTY_TWO_BIT
 #else
+    /* clang-format on */
+    /* clang-format off */
 #undef SIXTY_FOUR_BIT
+    /* clang-format on */
+    /* clang-format off */
 #define THIRTY_TWO_BIT
 #endif
+/* clang-format on */
 
 #endif
