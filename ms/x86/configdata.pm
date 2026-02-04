@@ -163,7 +163,7 @@ our %config = (
     ],
     "dynamic_engines" => "0",
     "ex_libs" => [],
-    "full_version" => "3.0.18",
+    "full_version" => "3.0.19",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -214,7 +214,7 @@ our %config = (
     ],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files (x86)\\OpenSSL-3 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\Release\\libz-static.lib enable-zlib no-acvp-tests no-afalgeng no-asan no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-dynamic-engine no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fips no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-ktls no-loadereng no-md2 no-msan no-rc5 no-sctp no-ssl3 no-ssl3-method no-trace no-ubsan no-unit-test no-weak-ssl-ciphers no-zlib-dynamic",
-    "patch" => "18",
+    "patch" => "19",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
     "perl_version" => "5.42.0",
@@ -266,11 +266,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned int",
-    "release_date" => "30 Sep 2025",
+    "release_date" => "27 Jan 2026",
     "shlib_version" => "3",
     "sourcedir" => ".",
     "target" => "VC-WIN32",
-    "version" => "3.0.18"
+    "version" => "3.0.19"
 );
 our %target = (
     "AR" => "lib",
@@ -2357,6 +2357,9 @@ our %unified_info = (
         "doc\\html\\man3\\BIO_set_callback.html" => [
             ".\\doc\\man3\\BIO_set_callback.pod"
         ],
+        "doc\\html\\man3\\BIO_set_flags.html" => [
+            ".\\doc\\man3\\BIO_set_flags.pod"
+        ],
         "doc\\html\\man3\\BIO_should_retry.html" => [
             ".\\doc\\man3\\BIO_should_retry.pod"
         ],
@@ -2431,6 +2434,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\CMS_EncryptedData_encrypt.html" => [
             ".\\doc\\man3\\CMS_EncryptedData_encrypt.pod"
+        ],
+        "doc\\html\\man3\\CMS_EncryptedData_set1_key.html" => [
+            ".\\doc\\man3\\CMS_EncryptedData_set1_key.pod"
         ],
         "doc\\html\\man3\\CMS_EnvelopedData_create.html" => [
             ".\\doc\\man3\\CMS_EnvelopedData_create.pod"
@@ -2665,6 +2671,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\EVP_BytesToKey.html" => [
             ".\\doc\\man3\\EVP_BytesToKey.pod"
+        ],
+        "doc\\html\\man3\\EVP_CIPHER_CTX_get_app_data.html" => [
+            ".\\doc\\man3\\EVP_CIPHER_CTX_get_app_data.pod"
         ],
         "doc\\html\\man3\\EVP_CIPHER_CTX_get_cipher_data.html" => [
             ".\\doc\\man3\\EVP_CIPHER_CTX_get_cipher_data.pod"
@@ -4963,6 +4972,9 @@ our %unified_info = (
         "doc\\man\\man3\\BIO_set_callback.3" => [
             ".\\doc\\man3\\BIO_set_callback.pod"
         ],
+        "doc\\man\\man3\\BIO_set_flags.3" => [
+            ".\\doc\\man3\\BIO_set_flags.pod"
+        ],
         "doc\\man\\man3\\BIO_should_retry.3" => [
             ".\\doc\\man3\\BIO_should_retry.pod"
         ],
@@ -5037,6 +5049,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\CMS_EncryptedData_encrypt.3" => [
             ".\\doc\\man3\\CMS_EncryptedData_encrypt.pod"
+        ],
+        "doc\\man\\man3\\CMS_EncryptedData_set1_key.3" => [
+            ".\\doc\\man3\\CMS_EncryptedData_set1_key.pod"
         ],
         "doc\\man\\man3\\CMS_EnvelopedData_create.3" => [
             ".\\doc\\man3\\CMS_EnvelopedData_create.pod"
@@ -5271,6 +5286,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\EVP_BytesToKey.3" => [
             ".\\doc\\man3\\EVP_BytesToKey.pod"
+        ],
+        "doc\\man\\man3\\EVP_CIPHER_CTX_get_app_data.3" => [
+            ".\\doc\\man3\\EVP_CIPHER_CTX_get_app_data.pod"
         ],
         "doc\\man\\man3\\EVP_CIPHER_CTX_get_cipher_data.3" => [
             ".\\doc\\man3\\EVP_CIPHER_CTX_get_cipher_data.pod"
@@ -11917,6 +11935,9 @@ our %unified_info = (
         "doc\\html\\man3\\BIO_set_callback.html" => [
             ".\\doc\\man3\\BIO_set_callback.pod"
         ],
+        "doc\\html\\man3\\BIO_set_flags.html" => [
+            ".\\doc\\man3\\BIO_set_flags.pod"
+        ],
         "doc\\html\\man3\\BIO_should_retry.html" => [
             ".\\doc\\man3\\BIO_should_retry.pod"
         ],
@@ -11991,6 +12012,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\CMS_EncryptedData_encrypt.html" => [
             ".\\doc\\man3\\CMS_EncryptedData_encrypt.pod"
+        ],
+        "doc\\html\\man3\\CMS_EncryptedData_set1_key.html" => [
+            ".\\doc\\man3\\CMS_EncryptedData_set1_key.pod"
         ],
         "doc\\html\\man3\\CMS_EnvelopedData_create.html" => [
             ".\\doc\\man3\\CMS_EnvelopedData_create.pod"
@@ -12225,6 +12249,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\EVP_BytesToKey.html" => [
             ".\\doc\\man3\\EVP_BytesToKey.pod"
+        ],
+        "doc\\html\\man3\\EVP_CIPHER_CTX_get_app_data.html" => [
+            ".\\doc\\man3\\EVP_CIPHER_CTX_get_app_data.pod"
         ],
         "doc\\html\\man3\\EVP_CIPHER_CTX_get_cipher_data.html" => [
             ".\\doc\\man3\\EVP_CIPHER_CTX_get_cipher_data.pod"
@@ -14470,6 +14497,9 @@ our %unified_info = (
         "doc\\man\\man3\\BIO_set_callback.3" => [
             ".\\doc\\man3\\BIO_set_callback.pod"
         ],
+        "doc\\man\\man3\\BIO_set_flags.3" => [
+            ".\\doc\\man3\\BIO_set_flags.pod"
+        ],
         "doc\\man\\man3\\BIO_should_retry.3" => [
             ".\\doc\\man3\\BIO_should_retry.pod"
         ],
@@ -14544,6 +14574,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\CMS_EncryptedData_encrypt.3" => [
             ".\\doc\\man3\\CMS_EncryptedData_encrypt.pod"
+        ],
+        "doc\\man\\man3\\CMS_EncryptedData_set1_key.3" => [
+            ".\\doc\\man3\\CMS_EncryptedData_set1_key.pod"
         ],
         "doc\\man\\man3\\CMS_EnvelopedData_create.3" => [
             ".\\doc\\man3\\CMS_EnvelopedData_create.pod"
@@ -14778,6 +14811,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\EVP_BytesToKey.3" => [
             ".\\doc\\man3\\EVP_BytesToKey.pod"
+        ],
+        "doc\\man\\man3\\EVP_CIPHER_CTX_get_app_data.3" => [
+            ".\\doc\\man3\\EVP_CIPHER_CTX_get_app_data.pod"
         ],
         "doc\\man\\man3\\EVP_CIPHER_CTX_get_cipher_data.3" => [
             ".\\doc\\man3\\EVP_CIPHER_CTX_get_cipher_data.pod"
@@ -17073,6 +17109,7 @@ our %unified_info = (
             "doc\\html\\man3\\BIO_s_null.html",
             "doc\\html\\man3\\BIO_s_socket.html",
             "doc\\html\\man3\\BIO_set_callback.html",
+            "doc\\html\\man3\\BIO_set_flags.html",
             "doc\\html\\man3\\BIO_should_retry.html",
             "doc\\html\\man3\\BIO_socket_wait.html",
             "doc\\html\\man3\\BN_BLINDING_new.html",
@@ -17098,6 +17135,7 @@ our %unified_info = (
             "doc\\html\\man3\\BUF_MEM_new.html",
             "doc\\html\\man3\\CMS_EncryptedData_decrypt.html",
             "doc\\html\\man3\\CMS_EncryptedData_encrypt.html",
+            "doc\\html\\man3\\CMS_EncryptedData_set1_key.html",
             "doc\\html\\man3\\CMS_EnvelopedData_create.html",
             "doc\\html\\man3\\CMS_add0_cert.html",
             "doc\\html\\man3\\CMS_add1_recipient_cert.html",
@@ -17176,6 +17214,7 @@ our %unified_info = (
             "doc\\html\\man3\\ERR_set_mark.html",
             "doc\\html\\man3\\EVP_ASYM_CIPHER_free.html",
             "doc\\html\\man3\\EVP_BytesToKey.html",
+            "doc\\html\\man3\\EVP_CIPHER_CTX_get_app_data.html",
             "doc\\html\\man3\\EVP_CIPHER_CTX_get_cipher_data.html",
             "doc\\html\\man3\\EVP_CIPHER_CTX_get_original_iv.html",
             "doc\\html\\man3\\EVP_CIPHER_meth_new.html",
@@ -20808,6 +20847,7 @@ our %unified_info = (
             "doc\\man\\man3\\BIO_s_null.3",
             "doc\\man\\man3\\BIO_s_socket.3",
             "doc\\man\\man3\\BIO_set_callback.3",
+            "doc\\man\\man3\\BIO_set_flags.3",
             "doc\\man\\man3\\BIO_should_retry.3",
             "doc\\man\\man3\\BIO_socket_wait.3",
             "doc\\man\\man3\\BN_BLINDING_new.3",
@@ -20833,6 +20873,7 @@ our %unified_info = (
             "doc\\man\\man3\\BUF_MEM_new.3",
             "doc\\man\\man3\\CMS_EncryptedData_decrypt.3",
             "doc\\man\\man3\\CMS_EncryptedData_encrypt.3",
+            "doc\\man\\man3\\CMS_EncryptedData_set1_key.3",
             "doc\\man\\man3\\CMS_EnvelopedData_create.3",
             "doc\\man\\man3\\CMS_add0_cert.3",
             "doc\\man\\man3\\CMS_add1_recipient_cert.3",
@@ -20911,6 +20952,7 @@ our %unified_info = (
             "doc\\man\\man3\\ERR_set_mark.3",
             "doc\\man\\man3\\EVP_ASYM_CIPHER_free.3",
             "doc\\man\\man3\\EVP_BytesToKey.3",
+            "doc\\man\\man3\\EVP_CIPHER_CTX_get_app_data.3",
             "doc\\man\\man3\\EVP_CIPHER_CTX_get_cipher_data.3",
             "doc\\man\\man3\\EVP_CIPHER_CTX_get_original_iv.3",
             "doc\\man\\man3\\EVP_CIPHER_meth_new.3",
@@ -31289,7 +31331,7 @@ unless (caller) {
     if (scalar @ARGV == 0) {
         # With no arguments, re-create the build file
         # We do that in two steps, where the first step emits perl
-        # snipets.
+        # snippets.
 
         my $buildfile = $config{build_file};
         my $buildfile_template = "$buildfile.in";
