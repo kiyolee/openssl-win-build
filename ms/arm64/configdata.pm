@@ -177,7 +177,7 @@ our %config = (
     ],
     "dynamic_engines" => "0",
     "ex_libs" => [],
-    "full_version" => "3.6.1",
+    "full_version" => "3.6.2",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -244,10 +244,10 @@ our %config = (
     "openssl_sys_defines" => [],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files\\OpenSSL-3 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\ARM64\\Release\\libz-static.lib enable-zlib no-acvp-tests no-afalgeng no-allocfail-tests no-asan no-asm no-brotli no-brotli-dynamic no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-demos no-devcryptoeng no-dynamic-engine no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fips no-fips-jitter no-fips-post no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-h3demo no-hqinterop no-jitter no-ktls no-lms no-loadereng no-md2 no-msan no-pie no-rc5 no-sctp no-ssl3 no-ssl3-method no-sslkeylog no-tfo no-trace no-ubsan no-unit-test no-uplink no-weak-ssl-ciphers no-zlib-dynamic no-zstd no-zstd-dynamic",
-    "patch" => "1",
+    "patch" => "2",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
-    "perl_version" => "5.42.0",
+    "perl_version" => "5.42.2",
     "perlargv" => [
         "--prefix=C:\\Program Files\\OpenSSL-3",
         "--with-zlib-include=..\\zlib",
@@ -297,11 +297,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned char",
-    "release_date" => "27 Jan 2026",
+    "release_date" => "7 Apr 2026",
     "shlib_version" => "3",
     "sourcedir" => ".",
     "target" => "VC-WIN64-ARM",
-    "version" => "3.6.1"
+    "version" => "3.6.2"
 );
 our %target = (
     "AR" => "lib",
@@ -4409,6 +4409,9 @@ our %unified_info = (
         "doc\\html\\man3\\UI_new.html" => [
             ".\\doc\\man3\\UI_new.pod"
         ],
+        "doc\\html\\man3\\X509V3_EXT_print.html" => [
+            ".\\doc\\man3\\X509V3_EXT_print.pod"
+        ],
         "doc\\html\\man3\\X509V3_get_d2i.html" => [
             ".\\doc\\man3\\X509V3_get_d2i.pod"
         ],
@@ -7331,6 +7334,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\UI_new.3" => [
             ".\\doc\\man3\\UI_new.pod"
+        ],
+        "doc\\man\\man3\\X509V3_EXT_print.3" => [
+            ".\\doc\\man3\\X509V3_EXT_print.pod"
         ],
         "doc\\man\\man3\\X509V3_get_d2i.3" => [
             ".\\doc\\man3\\X509V3_get_d2i.pod"
@@ -13168,6 +13174,22 @@ our %unified_info = (
         ],
         "builddata.pm" => [
             ".\\util\\mkinstallvars.pl",
+            "COMMENT=\"This",
+            "file",
+            "should",
+            "be",
+            "used",
+            "when",
+            "building",
+            "against",
+            "this",
+            "OpenSSL",
+            "build,",
+            "and",
+            "should",
+            "never",
+            "be",
+            "installed\"",
             "PREFIX=.",
             "BINDIR=apps",
             "APPLINKDIR=ms",
@@ -15906,6 +15928,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\UI_new.html" => [
             ".\\doc\\man3\\UI_new.pod"
+        ],
+        "doc\\html\\man3\\X509V3_EXT_print.html" => [
+            ".\\doc\\man3\\X509V3_EXT_print.pod"
         ],
         "doc\\html\\man3\\X509V3_get_d2i.html" => [
             ".\\doc\\man3\\X509V3_get_d2i.pod"
@@ -18775,6 +18800,9 @@ our %unified_info = (
         "doc\\man\\man3\\UI_new.3" => [
             ".\\doc\\man3\\UI_new.pod"
         ],
+        "doc\\man\\man3\\X509V3_EXT_print.3" => [
+            ".\\doc\\man3\\X509V3_EXT_print.pod"
+        ],
         "doc\\man\\man3\\X509V3_get_d2i.3" => [
             ".\\doc\\man3\\X509V3_get_d2i.pod"
         ],
@@ -20868,6 +20896,7 @@ our %unified_info = (
             "doc\\html\\man3\\UI_UTIL_read_pw.html",
             "doc\\html\\man3\\UI_create_method.html",
             "doc\\html\\man3\\UI_new.html",
+            "doc\\html\\man3\\X509V3_EXT_print.html",
             "doc\\html\\man3\\X509V3_get_d2i.html",
             "doc\\html\\man3\\X509V3_set_ctx.html",
             "doc\\html\\man3\\X509_ACERT_add1_attr.html",
@@ -25736,6 +25765,7 @@ our %unified_info = (
             "doc\\man\\man3\\UI_UTIL_read_pw.3",
             "doc\\man\\man3\\UI_create_method.3",
             "doc\\man\\man3\\UI_new.3",
+            "doc\\man\\man3\\X509V3_EXT_print.3",
             "doc\\man\\man3\\X509V3_get_d2i.3",
             "doc\\man\\man3\\X509V3_set_ctx.3",
             "doc\\man\\man3\\X509_ACERT_add1_attr.3",
