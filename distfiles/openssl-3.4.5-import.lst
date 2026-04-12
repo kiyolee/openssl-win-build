@@ -3647,6 +3647,9 @@ test/certs/cross-key.pem
 test/certs/cross-root.pem
 test/certs/ct-server-key-public.pem
 test/certs/ct-server-key.pem
+test/certs/cve-2026-28388-ca.pem
+test/certs/cve-2026-28388-crls.pem
+test/certs/cve-2026-28388-leaf.pem
 test/certs/cyrillic.msb
 test/certs/cyrillic.pem
 test/certs/cyrillic.utf8
@@ -4940,10 +4943,17 @@ test/recipes/80-test_cms.t
 test/recipes/80-test_cms_data/bad_signtime_attr.cms
 test/recipes/80-test_cms_data/ciphertext_from_1_1_1.cms
 test/recipes/80-test_cms_data/ct_multiple_attr.cms
+test/recipes/80-test_cms_data/dh-cert.pem
+test/recipes/80-test_cms_data/dh-key.pem
+test/recipes/80-test_cms_data/dh-malformed.der
+test/recipes/80-test_cms_data/ecdh-cert.pem
+test/recipes/80-test_cms_data/ecdh-key.pem
+test/recipes/80-test_cms_data/ecdh-malformed.der
 test/recipes/80-test_cms_data/no_ct_attr.cms
 test/recipes/80-test_cms_data/no_md_attr.cms
 test/recipes/80-test_cms_data/pkcs7-md4-encrypted.pem
 test/recipes/80-test_cms_data/pkcs7-md4.pem
+test/recipes/80-test_cms_data/rsa-malformed.der
 test/recipes/80-test_cmsapi.t
 test/recipes/80-test_cmsapi_data/encDataWithTooLongIV.pem
 test/recipes/80-test_cmsapi_data/encryptedData.der
