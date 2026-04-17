@@ -9,13 +9,13 @@ you know how to use Visual Studio, right?
 (or perhaps this is the wrong place for you.)
 
 Depends on zlib-win-build. There are hard references assuming
-zlib-win-build sits next to openssl3-win-build.
+zlib-win-build sits next to openssl-win-build.
 
 Basically, in a command prompt:
 
 > \> cd {somewhere}\\  
 > \> git clone https://github.com/kiyolee/zlib-win-build.git  
-> \> git clone https://github.com/kiyolee/openssl3-win-build.git
+> \> git clone https://github.com/kiyolee/openssl-win-build.git
 
 Build zlib first and then openssl3, with the same corresponding Visual Studio solution of course.
 
@@ -52,7 +52,7 @@ Make sure both perl and nasm can be found through command path.
 
 To test one set of output binaries that use DLLs:
 
-> \> cd {somewhere}\openssl3-win-build\
+> \> cd {somewhere}\openssl-win-build\
 > \> test\test_one.cmd build-{vsver}\\{outdir}
 
 where build-{vsver} is one of the VS build directories and {outdir} is one of the following:
@@ -63,12 +63,12 @@ where build-{vsver} is one of the VS build directories and {outdir} is one of th
 
 To test one set of output binaries that use static libraries:
 
-> \> cd {somewhere}\openssl3-win-build\
+> \> cd {somewhere}\openssl-win-build\
 > \> test\test_one.cmd build-{vsver}\\{outdir} -static
 
 To test all binaries that have been built:
 
-> \> cd {somewhere}\openssl3-win-build\
+> \> cd {somewhere}\openssl-win-build\
 > \> test\test_all.cmd
 
 ### Using The Build:
