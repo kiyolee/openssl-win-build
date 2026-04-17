@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from der_sm2.h.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from der_sm2.h.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 #include "crypto/ec.h"

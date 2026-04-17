@@ -11,7 +11,7 @@
  * CRMF (RFC 4211) implementation by M. Peylo, M. Viljanen, and D. von Oheimb.
  */
 /*
- * Generated from crmf.h.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from crmf.h.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 
