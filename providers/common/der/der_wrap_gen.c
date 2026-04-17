@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from der_wrap_gen.c.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from der_wrap_gen.c.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 #include "prov/der_wrap.h"

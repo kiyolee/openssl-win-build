@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from x509_acert.h.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from x509_acert.h.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 /* clang-format off */
