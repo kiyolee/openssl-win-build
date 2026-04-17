@@ -11,7 +11,7 @@
  * for the EdelKey project.
  */
 /*
- * Generated from srp.h.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from srp.h.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 /* clang-format off */
