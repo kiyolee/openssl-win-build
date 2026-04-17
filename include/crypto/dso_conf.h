@@ -9,7 +9,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from dso_conf.h.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from dso_conf.h.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 #ifndef OSSL_CRYPTO_DSO_CONF_H
