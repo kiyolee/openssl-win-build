@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from sm2_enc.c.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from sm2_enc.c.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 /* clang-format off */
 

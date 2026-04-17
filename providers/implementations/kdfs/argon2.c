@@ -10,7 +10,7 @@
  *
  */
 /*
- * Generated from argon2.c.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from argon2.c.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 /* clang-format off */
 

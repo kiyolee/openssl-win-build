@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from configuration.h.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from configuration.h.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 
 #ifndef OPENSSL_CONFIGURATION_H

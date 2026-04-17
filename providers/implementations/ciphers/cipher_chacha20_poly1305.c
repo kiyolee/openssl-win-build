@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from cipher_chacha20_poly1305.c.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from cipher_chacha20_poly1305.c.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 /* clang-format off */
 

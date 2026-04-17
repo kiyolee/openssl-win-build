@@ -7,7 +7,7 @@
  * https://www.openssl.org/source/license.html
  */
 /*
- * Generated from ecdh_exch.c.in for https://github.com/kiyolee/openssl3-win-build.git.
+ * Generated from ecdh_exch.c.in for https://github.com/kiyolee/openssl-win-build.git.
  */
 /* clang-format off */
 
