@@ -1,5 +1,5 @@
 #! /usr/bin/env perl
-# Copyright 2015-2024 The OpenSSL Project Authors. All Rights Reserved.
+# Copyright 2015-2026 The OpenSSL Project Authors. All Rights Reserved.
 #
 # Licensed under the Apache License 2.0 (the "License").  You may not use
 # this file except in compliance with the License.  You can obtain a copy
@@ -7,20 +7,24 @@
 # https://www.openssl.org/source/license.html
 
 use strict;
-use OpenSSL::Test qw/:DEFAULT cmdstr srctop_file srctop_dir bldtop_dir/;
+use OpenSSL::Test qw/:DEFAULT cmdstr srctop_file srctop_dir bldtop_dir shlib_dir/;
 use OpenSSL::Test::Utils;
 use File::Temp qw(tempfile);
 use TLSProxy::Proxy;
 use checkhandshake qw(checkhandshake @handmessages @extensions);
+use Cwd qw(abs_path);
 
 my $test_name = "test_sslmessages";
 setup($test_name);
 
+#$ENV{OPENSSL_MODULES} = abs_path(bldtop_dir("test"));
+$ENV{OPENSSL_MODULES} = abs_path(shlib_dir());
+
 plan skip_all => "TLSProxy isn't usable on $^O"
     if $^O =~ /^(VMS)$/;
 
-plan skip_all => "$test_name needs the dynamic engine feature enabled"
-    if disabled("engine") || disabled("dynamic-engine");
+plan skip_all => "$test_name needs the module feature enabled"
+    if disabled("module");
 
 plan skip_all => "$test_name needs the sock feature enabled"
     if disabled("sock");
@@ -97,7 +101,7 @@ my $proxy = TLSProxy::Proxy->new(
     [TLSProxy::Message::MT_CLIENT_HELLO, TLSProxy::Message::EXT_STATUS_REQUEST,
         TLSProxy::Message::CLIENT,
         checkhandshake::STATUS_REQUEST_CLI_EXTENSION],
-    (disabled("ec") ? () :
+    ((disabled("ec") && disabled("dh")) ? () :
                       [TLSProxy::Message::MT_CLIENT_HELLO,
                        TLSProxy::Message::EXT_SUPPORTED_GROUPS,
                        TLSProxy::Message::CLIENT,

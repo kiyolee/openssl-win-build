@@ -1,7 +1,7 @@
 setlocal
 
-set OPENSSL_VER=3.6.2
-set OPENSSL_VER_SED=3\.6\.2
+set OPENSSL_VER=4.0.0
+set OPENSSL_VER_SED=4\.0\.0
 set OPENSSL_BASE=openssl-%OPENSSL_VER%
 set OPENSSL_BASE_SED=openssl-%OPENSSL_VER_SED%
 set OPENSSL_DIR=..\%OPENSSL_BASE%
@@ -10,7 +10,6 @@ set OPENSSL_DIR_SED=\.\.\\\\openssl-%OPENSSL_VER_SED%
 set ZLIB_DIR=..\zlib
 
 set _GEN_LIST_INCL=^
-  include\crypto\bn_conf.h ^
   include\crypto\dso_conf.h ^
   include\openssl\asn1.h ^
   include\openssl\asn1t.h ^
@@ -44,74 +43,95 @@ set _GEN_LIST_PARAMNAMES_INCL=^
   include\openssl\core_names.h
 
 set _GEN_LIST_PARAMNAMES_CSRC=^
-  providers\implementations\asymciphers\rsa_enc.c ^
-  providers\implementations\asymciphers\sm2_enc.c ^
-  providers\implementations\ciphers\cipher_chacha20_poly1305.c ^
-  providers\implementations\ciphers\ciphercommon.c ^
-  providers\implementations\ciphers\ciphercommon_ccm.c ^
-  providers\implementations\ciphers\ciphercommon_gcm.c ^
-  providers\implementations\digests\blake2_prov.c ^
-  providers\implementations\digests\digestcommon.c ^
-  providers\implementations\digests\sha3_prov.c ^
-  providers\implementations\encode_decode\decode_der2key.c ^
-  providers\implementations\encode_decode\decode_epki2pki.c ^
-  providers\implementations\encode_decode\decode_pem2der.c ^
-  providers\implementations\encode_decode\decode_pvk2key.c ^
-  providers\implementations\encode_decode\decode_spki2typespki.c ^
-  providers\implementations\encode_decode\encode_key2any.c ^
-  providers\implementations\encode_decode\encode_key2ms.c ^
-  providers\implementations\exchange\dh_exch.c ^
-  providers\implementations\exchange\ecdh_exch.c ^
-  providers\implementations\exchange\ecx_exch.c ^
-  providers\implementations\kdfs\argon2.c ^
-  providers\implementations\kdfs\hkdf.c ^
-  providers\implementations\kdfs\hmacdrbg_kdf.c ^
-  providers\implementations\kdfs\kbkdf.c ^
-  providers\implementations\kdfs\krb5kdf.c ^
-  providers\implementations\kdfs\pbkdf1.c ^
-  providers\implementations\kdfs\pbkdf2.c ^
-  providers\implementations\kdfs\pkcs12kdf.c ^
-  providers\implementations\kdfs\pvkkdf.c ^
-  providers\implementations\kdfs\scrypt.c ^
-  providers\implementations\kdfs\sshkdf.c ^
-  providers\implementations\kdfs\sskdf.c ^
-  providers\implementations\kdfs\tls1_prf.c ^
-  providers\implementations\kdfs\x942kdf.c ^
-  providers\implementations\kem\ec_kem.c ^
-  providers\implementations\kem\ecx_kem.c ^
-  providers\implementations\kem\ml_kem_kem.c ^
-  providers\implementations\kem\rsa_kem.c ^
-  providers\implementations\keymgmt\ecx_kmgmt.c ^
-  providers\implementations\keymgmt\lms_kmgmt.c ^
-  providers\implementations\keymgmt\ml_dsa_kmgmt.c ^
-  providers\implementations\keymgmt\ml_kem_kmgmt.c ^
-  providers\implementations\keymgmt\mlx_kmgmt.c ^
-  providers\implementations\keymgmt\slh_dsa_kmgmt.c ^
-  providers\implementations\keymgmt\template_kmgmt.c ^
-  providers\implementations\macs\cmac_prov.c ^
-  providers\implementations\macs\gmac_prov.c ^
-  providers\implementations\macs\hmac_prov.c ^
-  providers\implementations\macs\kmac_prov.c ^
-  providers\implementations\macs\poly1305_prov.c ^
-  providers\implementations\macs\siphash_prov.c ^
-  providers\implementations\rands\drbg_ctr.c ^
-  providers\implementations\rands\drbg_hash.c ^
-  providers\implementations\rands\drbg_hmac.c ^
-  providers\implementations\rands\fips_crng_test.c ^
-  providers\implementations\rands\seed_src.c ^
-  providers\implementations\rands\seed_src_jitter.c ^
-  providers\implementations\rands\test_rng.c ^
-  providers\implementations\signature\dsa_sig.c ^
-  providers\implementations\signature\ecdsa_sig.c ^
-  providers\implementations\signature\eddsa_sig.c ^
-  providers\implementations\signature\ml_dsa_sig.c ^
-  providers\implementations\signature\rsa_sig.c ^
-  providers\implementations\signature\slh_dsa_sig.c ^
-  providers\implementations\signature\sm2_sig.c ^
-  providers\implementations\skeymgmt\generic.c ^
-  providers\implementations\storemgmt\file_store.c ^
-  providers\implementations\storemgmt\file_store_any2obj.c ^
-  providers\implementations\storemgmt\winstore_store.c
+  providers\implementations\asymciphers\rsa_enc.inc ^
+  providers\implementations\asymciphers\sm2_enc.inc ^
+  providers\implementations\ciphers\cipher_aes_cbc_hmac_sha.inc ^
+  providers\implementations\ciphers\cipher_aes_cbc_hmac_sha_etm.inc ^
+  providers\implementations\ciphers\cipher_aes_gcm_siv.inc ^
+  providers\implementations\ciphers\cipher_aes_ocb.inc ^
+  providers\implementations\ciphers\cipher_aes_siv.inc ^
+  providers\implementations\ciphers\cipher_aes_wrp.inc ^
+  providers\implementations\ciphers\cipher_aes_xts.inc ^
+  providers\implementations\ciphers\cipher_chacha20.inc ^
+  providers\implementations\ciphers\cipher_chacha20_poly1305.inc ^
+  providers\implementations\ciphers\cipher_null.inc ^
+  providers\implementations\ciphers\cipher_rc4_hmac_md5.inc ^
+  providers\implementations\ciphers\cipher_sm4_xts.inc ^
+  providers\implementations\ciphers\ciphercommon.inc ^
+  providers\implementations\ciphers\ciphercommon_ccm.inc ^
+  providers\implementations\ciphers\ciphercommon_gcm.inc ^
+  providers\implementations\digests\blake2_prov.inc ^
+  providers\implementations\digests\cshake_prov.inc ^
+  providers\implementations\digests\digestcommon.inc ^
+  providers\implementations\digests\mdc2_prov.inc ^
+  providers\implementations\digests\ml_dsa_mu_prov.inc ^
+  providers\implementations\digests\sha2_prov.inc ^
+  providers\implementations\digests\sha3_prov.inc ^
+  providers\implementations\encode_decode\decode_der2key.inc ^
+  providers\implementations\encode_decode\decode_epki2pki.inc ^
+  providers\implementations\encode_decode\decode_pem2der.inc ^
+  providers\implementations\encode_decode\decode_pvk2key.inc ^
+  providers\implementations\encode_decode\decode_spki2typespki.inc ^
+  providers\implementations\encode_decode\encode_key2any.inc ^
+  providers\implementations\encode_decode\encode_key2ms.inc ^
+  providers\implementations\exchange\dh_exch.inc ^
+  providers\implementations\exchange\ecdh_exch.inc ^
+  providers\implementations\exchange\ecx_exch.inc ^
+  providers\implementations\kdfs\argon2.inc ^
+  providers\implementations\kdfs\hkdf.inc ^
+  providers\implementations\kdfs\hmacdrbg_kdf.inc ^
+  providers\implementations\kdfs\kbkdf.inc ^
+  providers\implementations\kdfs\krb5kdf.inc ^
+  providers\implementations\kdfs\pbkdf1.inc ^
+  providers\implementations\kdfs\pbkdf2.inc ^
+  providers\implementations\kdfs\pkcs12kdf.inc ^
+  providers\implementations\kdfs\pvkkdf.inc ^
+  providers\implementations\kdfs\scrypt.inc ^
+  providers\implementations\kdfs\snmpkdf.inc ^
+  providers\implementations\kdfs\srtpkdf.inc ^
+  providers\implementations\kdfs\sshkdf.inc ^
+  providers\implementations\kdfs\sskdf.inc ^
+  providers\implementations\kdfs\tls1_prf.inc ^
+  providers\implementations\kdfs\x942kdf.inc ^
+  providers\implementations\kdfs\x963kdf.inc ^
+  providers\implementations\kem\ec_kem.inc ^
+  providers\implementations\kem\ecx_kem.inc ^
+  providers\implementations\kem\ml_kem_kem.inc ^
+  providers\implementations\kem\rsa_kem.inc ^
+  providers\implementations\keymgmt\dh_kmgmt.inc ^
+  providers\implementations\keymgmt\dsa_kmgmt.inc ^
+  providers\implementations\keymgmt\ecx_kmgmt.inc ^
+  providers\implementations\keymgmt\lms_kmgmt.inc ^
+  providers\implementations\keymgmt\mac_legacy_kmgmt.inc ^
+  providers\implementations\keymgmt\ml_dsa_kmgmt.inc ^
+  providers\implementations\keymgmt\ml_kem_kmgmt.inc ^
+  providers\implementations\keymgmt\mlx_kmgmt.inc ^
+  providers\implementations\keymgmt\slh_dsa_kmgmt.inc ^
+  providers\implementations\keymgmt\template_kmgmt.inc ^
+  providers\implementations\macs\cmac_prov.inc ^
+  providers\implementations\macs\gmac_prov.inc ^
+  providers\implementations\macs\hmac_prov.inc ^
+  providers\implementations\macs\kmac_prov.inc ^
+  providers\implementations\macs\poly1305_prov.inc ^
+  providers\implementations\macs\siphash_prov.inc ^
+  providers\implementations\rands\drbg_ctr.inc ^
+  providers\implementations\rands\drbg_hash.inc ^
+  providers\implementations\rands\drbg_hmac.inc ^
+  providers\implementations\rands\fips_crng_test.inc ^
+  providers\implementations\rands\seed_src.inc ^
+  providers\implementations\rands\seed_src_jitter.inc ^
+  providers\implementations\rands\test_rng.inc ^
+  providers\implementations\signature\dsa_sig.inc ^
+  providers\implementations\signature\ecdsa_sig.inc ^
+  providers\implementations\signature\eddsa_sig.inc ^
+  providers\implementations\signature\ml_dsa_sig.inc ^
+  providers\implementations\signature\rsa_sig.inc ^
+  providers\implementations\signature\slh_dsa_sig.inc ^
+  providers\implementations\signature\sm2_sig.inc ^
+  providers\implementations\skeymgmt\generic.inc ^
+  providers\implementations\storemgmt\file_store.inc ^
+  providers\implementations\storemgmt\file_store_any2obj.inc ^
+  providers\implementations\storemgmt\winstore_store.inc
 
 set _GEN_LIST_PROV_INCL=^
   providers\common\include\prov\der_digests.h ^
@@ -145,7 +165,7 @@ set _GEN_LIST=^
   %_GEN_LIST_PROV_INCL% ^
   %_GEN_LIST_PROV_CSRC% ^
   apps\progs.c apps\progs.h ^
-  apps\CA.pl apps\tsget.pl tools\c_rehash.pl util\wrap.pl
+  apps\CA.pl apps\tsget.pl util\wrap.pl
 
 mkdir dll64
 mkdir lib64
@@ -157,49 +177,49 @@ mkdir dllarm32
 mkdir libarm32
 
 pushd dll64
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\x64\Release\libz-static.lib VC-WIN64A-masm no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\x64\Release\libz-static.lib VC-WIN64A-masm zlib
 call :genfile
 call :clndir
 popd
 
 pushd lib64
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\x64\Release\libz-static.lib VC-WIN64A-masm no-shared no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\x64\Release\libz-static.lib VC-WIN64A-masm no-shared zlib
 call :genfile
 call :clndir
 popd
 
 pushd dll32
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles(x86)%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\Release\libz-static.lib VC-WIN32 no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles(x86)%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\Release\libz-static.lib VC-WIN32 zlib
 call :genfile
 call :clndir
 popd
 
 pushd lib32
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles(x86)%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\Release\libz-static.lib VC-WIN32 no-shared no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles(x86)%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\Release\libz-static.lib VC-WIN32 no-shared zlib
 call :genfile
 call :clndir
 popd
 
 pushd dllarm64
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM64\Release\libz-static.lib VC-WIN64-ARM no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM64\Release\libz-static.lib VC-WIN64-ARM zlib
 call :genfile
 call :clndir
 popd
 
 pushd libarm64
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM64\Release\libz-static.lib VC-WIN64-ARM no-shared no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM64\Release\libz-static.lib VC-WIN64-ARM no-shared zlib
 call :genfile
 call :clndir
 popd
 
 pushd dllarm32
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM\Release\libz-static.lib VC-WIN32-ARM no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM\Release\libz-static.lib VC-WIN32-ARM zlib
 call :genfile
 call :clndir
 popd
 
 pushd libarm32
-perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-3" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM\Release\libz-static.lib VC-WIN32-ARM no-shared no-dynamic-engine zlib
+perl %OPENSSL_DIR%\Configure --prefix="%ProgramFiles%\OpenSSL-4" --with-zlib-include=%ZLIB_DIR% --with-zlib-lib=%ZLIB_DIR%\build\ARM\Release\libz-static.lib VC-WIN32-ARM no-shared zlib
 call :genfile
 call :clndir
 popd
@@ -220,7 +240,6 @@ perl %OPENSSL_DIR%\apps\progs.pl -C apps\openssl > apps\progs.c
 perl %OPENSSL_DIR%\apps\progs.pl -H apps\openssl > apps\progs.h
 perl -I. -Mconfigdata %OPENSSL_DIR%\util\dofile.pl -omakefile %OPENSSL_DIR%\apps\CA.pl.in > apps\CA.pl
 perl -I. -Mconfigdata %OPENSSL_DIR%\util\dofile.pl -omakefile %OPENSSL_DIR%\apps\tsget.in > apps\tsget.pl
-perl -I. -Mconfigdata %OPENSSL_DIR%\util\dofile.pl -omakefile %OPENSSL_DIR%\tools\c_rehash.in > tools\c_rehash.pl
 perl -I. -Mconfigdata %OPENSSL_DIR%\util\dofile.pl -omakefile %OPENSSL_DIR%\util\wrap.pl.in > util\wrap.pl
 ren configdata.pm configdata.pm.org
 @rem Redirection must be at front for "^^" to work. Strange.

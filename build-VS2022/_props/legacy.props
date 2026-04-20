@@ -7,7 +7,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>$(OutDir)liblegacy-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(OutDir)libcrypto-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(OutDir)liblegacy-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(OutDir)libcrypto-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

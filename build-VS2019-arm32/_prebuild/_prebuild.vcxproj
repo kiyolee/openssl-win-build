@@ -579,6 +579,14 @@
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)include\openssl</DestinationFolders>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)include\openssl</DestinationFolders>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\..\include\openssl\posix_time.h">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)include\openssl</DestinationFolders>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)include\openssl</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\..\include\openssl\ech.h">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)include\openssl</DestinationFolders>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)include\openssl</DestinationFolders>
+    </CopyFileToFolders>
     <CopyFileToFolders Include="..\..\ms\applink.c">
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)include\openssl</DestinationFolders>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)include\openssl</DestinationFolders>

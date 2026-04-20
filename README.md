@@ -2,7 +2,7 @@
 
 openssl Windows build with Visual Studio.
 
-This version is openssl-3.6.2.
+This version is openssl-4.0.0.
 
 To build, simply open the required solution file, and
 you know how to use Visual Studio, right?
@@ -17,7 +17,7 @@ Basically, in a command prompt:
 > \> git clone https://github.com/kiyolee/zlib-win-build.git  
 > \> git clone https://github.com/kiyolee/openssl-win-build.git
 
-Build zlib first and then openssl3, with the same corresponding Visual Studio solution of course.
+Build zlib first and then openssl, with the same corresponding Visual Studio solution of course.
 
 Note that only zlib static libraries are used.
 
@@ -87,5 +87,5 @@ to the include path and link to libraries from "\$(OutDir)". Note that "\$(OutDi
 just a reference here and may need specific value for the project depending on
 the combination of Visual Studio version, Platform and Configuration required.
 
-If static libraries (libcrypto-3-static.lib and libssl-3-static.lib) are used,
+If static libraries (libcrypto-4-static.lib and libssl-4-static.lib) are used,
 libz-static.lib (from zlib-win-build) is needed as well.

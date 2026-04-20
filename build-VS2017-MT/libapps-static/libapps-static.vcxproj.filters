@@ -63,12 +63,6 @@
     <ClCompile Include="..\..\apps\lib\http_server.c">
       <Filter>Source Files\apps\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\apps\lib\engine.c">
-      <Filter>Source Files\apps\lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\apps\lib\engine_loader.c">
-      <Filter>Source Files\apps\lib</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\apps\lib\tlssrp_depr.c">
       <Filter>Source Files\apps\lib</Filter>
     </ClCompile>

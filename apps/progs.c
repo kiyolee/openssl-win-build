@@ -40,13 +40,13 @@ FUNCTION functions[] = {
 #ifndef OPENSSL_NO_EC
     {FT_general, "ec", ec_main, ec_options, NULL, NULL},
 #endif
+#ifndef OPENSSL_NO_ECH
+    {FT_general, "ech", ech_main, ech_options, NULL, NULL},
+#endif
 #ifndef OPENSSL_NO_EC
     {FT_general, "ecparam", ecparam_main, ecparam_options, NULL, NULL},
 #endif
     {FT_general, "enc", enc_main, enc_options, NULL, NULL},
-#ifndef OPENSSL_NO_ENGINE
-    {FT_general, "engine", engine_main, engine_options, NULL, NULL},
-#endif
     {FT_general, "errstr", errstr_main, errstr_options, NULL, NULL},
     {FT_general, "fipsinstall", fipsinstall_main, fipsinstall_options, NULL, NULL},
 #ifndef OPENSSL_NO_DSA

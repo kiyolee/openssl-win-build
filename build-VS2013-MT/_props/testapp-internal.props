@@ -13,7 +13,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-3-static.lib;$(OutDir)libssl-3-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-4-static.lib;$(OutDir)libssl-4-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -23,7 +23,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-3-static.lib;$(OutDir)libssl-3-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-4-static.lib;$(OutDir)libssl-4-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -33,7 +33,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-3-static.lib;$(OutDir)libssl-3-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-4-static.lib;$(OutDir)libssl-4-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -43,7 +43,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-3-static.lib;$(OutDir)libssl-3-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;crypt32.lib;$(OutDir)libcrypto-4-static.lib;$(OutDir)libssl-4-static.lib;$(OutDir)libtestutil-static.lib;$(OutDir)libcommon-static.lib;$(OutDir)libdefault-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

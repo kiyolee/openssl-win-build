@@ -111,6 +111,7 @@
     <ClCompile Include="..\..\apps\ciphers.c" />
     <ClCompile Include="..\..\apps\cmp.c" />
     <ClCompile Include="..\..\apps\configutl.c" />
+    <ClCompile Include="..\..\apps\ech.c" />
     <ClCompile Include="..\..\apps\lib\cmp_mock_srv.c" />
     <ClCompile Include="..\..\apps\cms.c" />
     <ClCompile Include="..\..\apps\crl.c" />
@@ -122,7 +123,6 @@
     <ClCompile Include="..\..\apps\ec.c" />
     <ClCompile Include="..\..\apps\ecparam.c" />
     <ClCompile Include="..\..\apps\enc.c" />
-    <ClCompile Include="..\..\apps\engine.c" />
     <ClCompile Include="..\..\apps\errstr.c" />
     <ClCompile Include="..\..\apps\fipsinstall.c" />
     <ClCompile Include="..\..\apps\gendsa.c" />
@@ -166,7 +166,7 @@
     <ClCompile Include="..\..\ms\applink.c" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\ms\openssl3.rc" />
+    <ResourceCompile Include="..\..\ms\openssl4.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

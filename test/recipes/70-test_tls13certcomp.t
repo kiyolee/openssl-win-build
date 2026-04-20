@@ -7,21 +7,25 @@
 # https://www.openssl.org/source/license.html
 
 use strict;
-use OpenSSL::Test qw/:DEFAULT cmdstr srctop_file srctop_dir bldtop_dir/;
+use OpenSSL::Test qw/:DEFAULT cmdstr srctop_file srctop_dir bldtop_dir shlib_dir/;
 use OpenSSL::Test::Utils;
 use File::Temp qw(tempfile);
 use TLSProxy::Proxy;
 use TLSProxy::Message;
 use checkhandshake qw(checkhandshake @handmessages @extensions);
+use Cwd qw(abs_path);
 
 my $test_name = "test_tls13certcomp";
 setup($test_name);
 
+#$ENV{OPENSSL_MODULES} = abs_path(bldtop_dir("test"));
+$ENV{OPENSSL_MODULES} = abs_path(shlib_dir());
+
 plan skip_all => "TLSProxy isn't usable on $^O"
     if $^O =~ /^(VMS)$/;
 
-plan skip_all => "$test_name needs the dynamic engine feature enabled"
-    if disabled("engine") || disabled("dynamic-engine");
+plan skip_all => "$test_name needs the module feature enabled"
+    if disabled("module");
 
 plan skip_all => "$test_name needs the sock feature enabled"
     if disabled("sock");

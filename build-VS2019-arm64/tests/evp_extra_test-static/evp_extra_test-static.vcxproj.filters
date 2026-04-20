@@ -16,6 +16,9 @@
     <Filter Include="Source Files\providers">
       <UniqueIdentifier>{b451e0cf-1d02-4dec-84e3-b8fc0877be55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\helpers">
+      <UniqueIdentifier>{54749f36-dc87-4a37-b10d-75c66eeeabd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\providers\legacyprov.c">
@@ -29,6 +32,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\test\fake_pipelineprov.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\helpers\predefined_dhparams.c">
+      <Filter>Source Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\helpers\predefined_dsaparams.c">
+      <Filter>Source Files\helpers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

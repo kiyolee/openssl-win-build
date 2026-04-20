@@ -13,7 +13,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;OPENSSL_USE_APPLINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-3.lib;$(OutDir)libssl-3.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-4.lib;$(OutDir)libssl-4.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -22,7 +22,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;OPENSSL_USE_APPLINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-3.lib;$(OutDir)libssl-3.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-4.lib;$(OutDir)libssl-4.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -31,7 +31,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;OPENSSL_USE_APPLINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-3.lib;$(OutDir)libssl-3.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-4.lib;$(OutDir)libssl-4.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -40,7 +40,7 @@
       <PreprocessorDefinitions>ZLIB;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_BUILDING_OPENSSL;OPENSSL_SYS_WIN32;OPENSSL_USE_APPLINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-3.lib;$(OutDir)libssl-3.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;ws2_32.lib;$(OutDir)libcrypto-4.lib;$(OutDir)libssl-4.lib;$(OutDir)libapps-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

@@ -102,7 +102,6 @@
     <ClCompile Include="..\..\..\apps\lib\app_provider.c" />
     <ClCompile Include="..\..\..\apps\lib\app_rand.c" />
     <ClCompile Include="..\..\..\apps\lib\app_x509.c" />
-    <ClCompile Include="..\..\..\apps\lib\engine.c" />
     <ClCompile Include="..\..\..\apps\lib\fmt.c" />
     <ClCompile Include="..\..\..\crypto\asn1\a_time.c" />
     <ClCompile Include="..\..\..\crypto\ctype.c" />

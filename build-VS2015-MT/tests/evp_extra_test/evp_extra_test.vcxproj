@@ -111,6 +111,8 @@
     <ClCompile Include="..\..\..\test\evp_extra_test.c" />
     <ClCompile Include="..\..\..\test\fake_pipelineprov.c" />
     <ClCompile Include="..\..\..\test\fake_rsaprov.c" />
+    <ClCompile Include="..\..\..\test\helpers\predefined_dhparams.c" />
+    <ClCompile Include="..\..\..\test\helpers\predefined_dsaparams.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

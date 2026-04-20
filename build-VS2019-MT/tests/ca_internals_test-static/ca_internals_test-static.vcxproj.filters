@@ -42,9 +42,6 @@
     <ClCompile Include="..\..\..\apps\lib\apps_ui.c">
       <Filter>Source Files\apps\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\apps\lib\engine.c">
-      <Filter>Source Files\apps\lib</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\apps\lib\fmt.c">
       <Filter>Source Files\apps\lib</Filter>
     </ClCompile>

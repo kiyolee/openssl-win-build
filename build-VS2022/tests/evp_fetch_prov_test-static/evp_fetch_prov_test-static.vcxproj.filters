@@ -18,5 +18,8 @@
     <ClCompile Include="..\..\..\test\evp_fetch_prov_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\test\fake_cipherprov.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

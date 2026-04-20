@@ -450,6 +450,12 @@
     <CustomBuild Include="..\..\include\openssl\ml_kem.h">
       <Filter>Header Files\include\openssl</Filter>
     </CustomBuild>
+    <CustomBuild Include="..\..\include\openssl\posix_time.h">
+      <Filter>Header Files\include\openssl</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\openssl\ech.h">
+      <Filter>Header Files\include\openssl</Filter>
+    </CustomBuild>
     <CustomBuild Include="..\..\ms\applink.c">
       <Filter>Source Files\ms</Filter>
     </CustomBuild>

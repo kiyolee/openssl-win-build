@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\helpers">
+      <UniqueIdentifier>{9c4e75d0-8898-44c2-a914-b4dfdd8f166d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\test\dsa_no_digest_size_test.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\helpers\predefined_dsaparams.c">
+      <Filter>Source Files\helpers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
