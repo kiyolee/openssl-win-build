@@ -173,7 +173,7 @@ our %config = (
         "NDEBUG"
     ],
     "ex_libs" => [],
-    "full_version" => "4.0.0",
+    "full_version" => "4.0.1",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -239,7 +239,7 @@ our %config = (
     "openssl_sys_defines" => [],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files\\OpenSSL-4 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\ARM\\Release\\libz-static.lib enable-zlib no-acvp-tests no-allocfail-tests no-asan no-asm no-brotli no-brotli-dynamic no-buildtest-c++ no-crypto-mdebug no-demos no-dynamic-engine no-ec_explicit_curves no-ec_nistp_64_gcc_128 no-egd no-engine no-external-tests no-fips no-fips-jitter no-fips-post no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-h3demo no-hqinterop no-jitter no-ktls no-lms no-md2 no-msan no-pie no-rc5 no-sctp no-shared no-sslkeylog no-static-engine no-static-vcruntime no-tfo no-tls-deprecated-ec no-trace no-ubsan no-unit-test no-uplink no-weak-ssl-ciphers no-zlib-dynamic no-zstd no-zstd-dynamic",
-    "patch" => "0",
+    "patch" => "1",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
     "perl_version" => "5.42.2",
@@ -292,11 +292,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned char",
-    "release_date" => "14 Apr 2026",
+    "release_date" => "9 Jun 2026",
     "shlib_version" => "4",
     "sourcedir" => ".",
     "target" => "VC-WIN32-ARM",
-    "version" => "4.0.0"
+    "version" => "4.0.1"
 );
 our %target = (
     "AR" => "lib",
@@ -1881,6 +1881,9 @@ our %unified_info = (
             "test\\time_test" => {
                 "noinst" => "1"
             },
+            "test\\tls12psk_test" => {
+                "noinst" => "1"
+            },
             "test\\tls13ccstest" => {
                 "noinst" => "1"
             },
@@ -1888,6 +1891,9 @@ our %unified_info = (
                 "noinst" => "1"
             },
             "test\\tls13groupselection_test" => {
+                "noinst" => "1"
+            },
+            "test\\tls13ticket_test" => {
                 "noinst" => "1"
             },
             "test\\trace_api_test" => {
@@ -2596,6 +2602,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\ASN1_BIT_STRING_get_length.html" => [
             ".\\doc\\man3\\ASN1_BIT_STRING_get_length.pod"
+        ],
+        "doc\\html\\man3\\ASN1_BIT_STRING_new.html" => [
+            ".\\doc\\man3\\ASN1_BIT_STRING_new.pod"
         ],
         "doc\\html\\man3\\ASN1_EXTERN_FUNCS.html" => [
             ".\\doc\\man3\\ASN1_EXTERN_FUNCS.pod"
@@ -5493,6 +5502,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\ASN1_BIT_STRING_get_length.3" => [
             ".\\doc\\man3\\ASN1_BIT_STRING_get_length.pod"
+        ],
+        "doc\\man\\man3\\ASN1_BIT_STRING_new.3" => [
+            ".\\doc\\man3\\ASN1_BIT_STRING_new.pod"
         ],
         "doc\\man\\man3\\ASN1_EXTERN_FUNCS.3" => [
             ".\\doc\\man3\\ASN1_EXTERN_FUNCS.pod"
@@ -9418,6 +9430,11 @@ our %unified_info = (
         "test\\list_test" => [
             "test\\libtestutil.a"
         ],
+        "test\\load_key_certs_crls_memfail" => [
+            "libcrypto.a",
+            "libssl.a",
+            "test\\libtestutil.a"
+        ],
         "test\\localetest" => [
             "libcrypto",
             "test\\libtestutil.a"
@@ -9878,6 +9895,11 @@ our %unified_info = (
             "libcrypto",
             "test\\libtestutil.a"
         ],
+        "test\\tls12psk_test" => [
+            "libcrypto.a",
+            "libssl.a",
+            "test\\libtestutil.a"
+        ],
         "test\\tls13ccstest" => [
             "libcrypto",
             "libssl",
@@ -9889,6 +9911,11 @@ our %unified_info = (
             "test\\libtestutil.a"
         ],
         "test\\tls13groupselection_test" => [
+            "libcrypto",
+            "libssl",
+            "test\\libtestutil.a"
+        ],
+        "test\\tls13ticket_test" => [
             "libcrypto",
             "libssl",
             "test\\libtestutil.a"
@@ -12164,8 +12191,10 @@ our %unified_info = (
                 "test\\helpers\\sslapitest-bin-ssltestlib.o",
                 "test\\helpers\\sslbuffertest-bin-ssltestlib.o",
                 "test\\helpers\\sslcorrupttest-bin-ssltestlib.o",
+                "test\\helpers\\tls12psk_test-bin-ssltestlib.o",
                 "test\\helpers\\tls13ccstest-bin-ssltestlib.o",
-                "test\\helpers\\tls13groupselection_test-bin-ssltestlib.o"
+                "test\\helpers\\tls13groupselection_test-bin-ssltestlib.o",
+                "test\\helpers\\tls13ticket_test-bin-ssltestlib.o"
             ],
             "products" => {
                 "bin" => [
@@ -12207,8 +12236,10 @@ our %unified_info = (
                     "test\\sslapitest",
                     "test\\sslbuffertest",
                     "test\\sslcorrupttest",
+                    "test\\tls12psk_test",
                     "test\\tls13ccstest",
-                    "test\\tls13groupselection_test"
+                    "test\\tls13groupselection_test",
+                    "test\\tls13ticket_test"
                 ]
             }
         },
@@ -13224,6 +13255,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\ASN1_BIT_STRING_get_length.html" => [
             ".\\doc\\man3\\ASN1_BIT_STRING_get_length.pod"
+        ],
+        "doc\\html\\man3\\ASN1_BIT_STRING_new.html" => [
+            ".\\doc\\man3\\ASN1_BIT_STRING_new.pod"
         ],
         "doc\\html\\man3\\ASN1_EXTERN_FUNCS.html" => [
             ".\\doc\\man3\\ASN1_EXTERN_FUNCS.pod"
@@ -16074,6 +16108,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\ASN1_BIT_STRING_get_length.3" => [
             ".\\doc\\man3\\ASN1_BIT_STRING_get_length.pod"
+        ],
+        "doc\\man\\man3\\ASN1_BIT_STRING_new.3" => [
+            ".\\doc\\man3\\ASN1_BIT_STRING_new.pod"
         ],
         "doc\\man\\man3\\ASN1_EXTERN_FUNCS.3" => [
             ".\\doc\\man3\\ASN1_EXTERN_FUNCS.pod"
@@ -19445,6 +19482,7 @@ our %unified_info = (
         "man3" => [
             "doc\\html\\man3\\ADMISSIONS.html",
             "doc\\html\\man3\\ASN1_BIT_STRING_get_length.html",
+            "doc\\html\\man3\\ASN1_BIT_STRING_new.html",
             "doc\\html\\man3\\ASN1_EXTERN_FUNCS.html",
             "doc\\html\\man3\\ASN1_INTEGER_get_int64.html",
             "doc\\html\\man3\\ASN1_INTEGER_new.html",
@@ -23411,6 +23449,12 @@ our %unified_info = (
             ".",
             ".\\include"
         ],
+        "test\\helpers\\tls12psk_test-bin-ssltestlib.o" => [
+            ".",
+            "include",
+            ".",
+            ".\\include"
+        ],
         "test\\helpers\\tls13ccstest-bin-ssltestlib.o" => [
             ".",
             "include",
@@ -23418,6 +23462,12 @@ our %unified_info = (
             ".\\include"
         ],
         "test\\helpers\\tls13groupselection_test-bin-ssltestlib.o" => [
+            ".",
+            "include",
+            ".",
+            ".\\include"
+        ],
+        "test\\helpers\\tls13ticket_test-bin-ssltestlib.o" => [
             ".",
             "include",
             ".",
@@ -23498,6 +23548,14 @@ our %unified_info = (
         "test\\list_test" => [
             "include",
             "apps\\include",
+            ".\\include",
+            ".\\apps\\include"
+        ],
+        "test\\load_key_certs_crls_memfail" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
             ".\\include",
             ".\\apps\\include"
         ],
@@ -24203,6 +24261,14 @@ our %unified_info = (
             ".\\include",
             ".\\apps\\include"
         ],
+        "test\\tls12psk_test" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
         "test\\tls13ccstest" => [
             "include",
             "apps\\include",
@@ -24218,6 +24284,12 @@ our %unified_info = (
             ".\\apps\\include"
         ],
         "test\\tls13groupselection_test" => [
+            "include",
+            "apps\\include",
+            ".\\include",
+            ".\\apps\\include"
+        ],
+        "test\\tls13ticket_test" => [
             "include",
             "apps\\include",
             ".\\include",
@@ -24426,6 +24498,7 @@ our %unified_info = (
         "man3" => [
             "doc\\man\\man3\\ADMISSIONS.3",
             "doc\\man\\man3\\ASN1_BIT_STRING_get_length.3",
+            "doc\\man\\man3\\ASN1_BIT_STRING_new.3",
             "doc\\man\\man3\\ASN1_EXTERN_FUNCS.3",
             "doc\\man\\man3\\ASN1_INTEGER_get_int64.3",
             "doc\\man\\man3\\ASN1_INTEGER_new.3",
@@ -25606,9 +25679,11 @@ our %unified_info = (
         "test\\threadstest_fips",
         "test\\time_offset_test",
         "test\\time_test",
+        "test\\tls12psk_test",
         "test\\tls13ccstest",
         "test\\tls13encryptiontest",
         "test\\tls13groupselection_test",
+        "test\\tls13ticket_test",
         "test\\trace_api_test",
         "test\\uitest",
         "test\\upcallstest",
@@ -32136,10 +32211,16 @@ our %unified_info = (
         "test\\helpers\\sslcorrupttest-bin-ssltestlib.o" => [
             ".\\test\\helpers\\ssltestlib.c"
         ],
+        "test\\helpers\\tls12psk_test-bin-ssltestlib.o" => [
+            ".\\test\\helpers\\ssltestlib.c"
+        ],
         "test\\helpers\\tls13ccstest-bin-ssltestlib.o" => [
             ".\\test\\helpers\\ssltestlib.c"
         ],
         "test\\helpers\\tls13groupselection_test-bin-ssltestlib.o" => [
+            ".\\test\\helpers\\ssltestlib.c"
+        ],
+        "test\\helpers\\tls13ticket_test-bin-ssltestlib.o" => [
             ".\\test\\helpers\\ssltestlib.c"
         ],
         "test\\hexstr_test" => [
@@ -33021,6 +33102,13 @@ our %unified_info = (
         "test\\time_test-bin-time_test.o" => [
             ".\\test\\time_test.c"
         ],
+        "test\\tls12psk_test" => [
+            "test\\helpers\\tls12psk_test-bin-ssltestlib.o",
+            "test\\tls12psk_test-bin-tls12psk.o"
+        ],
+        "test\\tls12psk_test-bin-tls12psk.o" => [
+            ".\\test\\tls12psk.c"
+        ],
         "test\\tls13ccstest" => [
             "test\\helpers\\tls13ccstest-bin-ssltestlib.o",
             "test\\tls13ccstest-bin-tls13ccstest.o"
@@ -33040,6 +33128,13 @@ our %unified_info = (
         ],
         "test\\tls13groupselection_test-bin-tls13groupselection_test.o" => [
             ".\\test\\tls13groupselection_test.c"
+        ],
+        "test\\tls13ticket_test" => [
+            "test\\helpers\\tls13ticket_test-bin-ssltestlib.o",
+            "test\\tls13ticket_test-bin-tls13tickettest.o"
+        ],
+        "test\\tls13ticket_test-bin-tls13tickettest.o" => [
+            ".\\test\\tls13tickettest.c"
         ],
         "test\\trace_api_test" => [
             "test\\trace_api_test-bin-trace_api_test.o"
