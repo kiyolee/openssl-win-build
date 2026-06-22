@@ -3359,6 +3359,9 @@ test/cmp_server_test.c
 test/cmp_status_test.c
 test/cmp_vfy_test.c
 test/cms-examples.pl
+test/cms-msg/enveloped-content-type-for-aes-gcm.pem
+test/cms-msg/make_missing_kdf_der.py
+test/cms-msg/missing-kdf.der
 test/cmsapitest.c
 test/conf_include_test.c
 test/confdump.c
@@ -4216,6 +4219,7 @@ test/recipes/70-test_tls13hrr.t
 test/recipes/70-test_tls13kexmodes.t
 test/recipes/70-test_tls13messages.t
 test/recipes/70-test_tls13psk.t
+test/recipes/70-test_tls13ticket.t
 test/recipes/70-test_tlsextms.t
 test/recipes/70-test_verify_extra.t
 test/recipes/70-test_wpacket.t
@@ -4274,6 +4278,7 @@ test/recipes/80-test_cms_data/no_md_attr.cms
 test/recipes/80-test_cms_data/pkcs7-md4.pem
 test/recipes/80-test_cms_data/rsa-malformed.der
 test/recipes/80-test_cmsapi.t
+test/recipes/80-test_cmsapi_data/cms_pwri_kek_oob.der
 test/recipes/80-test_cmsapi_data/encDataWithTooLongIV.pem
 test/recipes/80-test_cmsapi_data/encryptedData.der
 test/recipes/80-test_ct.t
@@ -4434,6 +4439,7 @@ test/smime-certs/smrsa3-cert.pem
 test/smime-certs/smrsa3-key.pem
 test/smime-certs/smrsa3.pem
 test/smime-eml/SignedInvalidMappingFromanyPolicyTest7.eml
+test/smime-eml/pkcs7-empty-digest-set.eml
 test/sparse_array_test.c
 test/srptest.c
 test/ssl-tests/01-simple.cnf
@@ -4566,6 +4572,7 @@ test/tls-provider.c
 test/tls13ccstest.c
 test/tls13encryptiontest.c
 test/tls13secretstest.c
+test/tls13tickettest.c
 test/trace_api_test.c
 test/uitest.c
 test/upcallstest.c
