@@ -1,5 +1,5 @@
 /*
- * Copyright 2022-2025 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2022-2026 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -2033,6 +2033,12 @@ static void ch_rx_check_forged_pkt_limit(QUIC_CHANNEL *ch)
 
     ossl_quic_channel_raise_protocol_error(ch, OSSL_QUIC_ERR_AEAD_LIMIT_REACHED, 0,
         "forgery limit");
+}
+
+void ossl_ch_reset_rx_state(QUIC_CHANNEL *ch)
+{
+    ch->did_crypto_frame = 0;
+    ch->seen_path_challenge = 0;
 }
 
 /* Process queued incoming packets and handle frames, if any. */

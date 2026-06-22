@@ -1,5 +1,5 @@
 /*
- * Copyright 2022-2024 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2022-2026 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -444,6 +444,7 @@ uint64_t ossl_quic_channel_get_max_idle_timeout_peer_request(const QUIC_CHANNEL 
 /* Get the idle timeout actually negotiated. */
 uint64_t ossl_quic_channel_get_max_idle_timeout_actual(const QUIC_CHANNEL *ch);
 
+void ossl_ch_reset_rx_state(QUIC_CHANNEL *ch);
 #endif
 
 #endif

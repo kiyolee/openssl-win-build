@@ -173,7 +173,7 @@ our %config = (
     ],
     "dynamic_engines" => "0",
     "ex_libs" => [],
-    "full_version" => "3.4.5",
+    "full_version" => "3.4.6",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -235,7 +235,7 @@ our %config = (
     "openssl_sys_defines" => [],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files\\OpenSSL-3 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\ARM64\\Release\\libz-static.lib enable-zlib no-acvp-tests no-afalgeng no-asan no-asm no-brotli no-brotli-dynamic no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-demos no-devcryptoeng no-dynamic-engine no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fips no-fips-post no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-h3demo no-jitter no-ktls no-loadereng no-md2 no-msan no-pie no-rc5 no-sctp no-ssl3 no-ssl3-method no-tfo no-trace no-ubsan no-unit-test no-uplink no-weak-ssl-ciphers no-zlib-dynamic no-zstd no-zstd-dynamic",
-    "patch" => "5",
+    "patch" => "6",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
     "perl_version" => "5.42.2",
@@ -288,11 +288,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned char",
-    "release_date" => "7 Apr 2026",
+    "release_date" => "9 Jun 2026",
     "shlib_version" => "3",
     "sourcedir" => ".",
     "target" => "VC-WIN64-ARM",
-    "version" => "3.4.5"
+    "version" => "3.4.6"
 );
 our %target = (
     "AR" => "lib",
@@ -1836,6 +1836,9 @@ our %unified_info = (
                 "noinst" => "1"
             },
             "test\\tls13secretstest" => {
+                "noinst" => "1"
+            },
+            "test\\tls13ticket_test" => {
                 "noinst" => "1"
             },
             "test\\trace_api_test" => {
@@ -9196,6 +9199,11 @@ our %unified_info = (
             "libssl",
             "test\\libtestutil.a"
         ],
+        "test\\tls13ticket_test" => [
+            "libcrypto",
+            "libssl",
+            "test\\libtestutil.a"
+        ],
         "test\\trace_api_test" => [
             "libcrypto.a",
             "test\\libtestutil.a"
@@ -12292,7 +12300,8 @@ our %unified_info = (
                 "test\\helpers\\sslapitest-bin-ssltestlib.o",
                 "test\\helpers\\sslbuffertest-bin-ssltestlib.o",
                 "test\\helpers\\sslcorrupttest-bin-ssltestlib.o",
-                "test\\helpers\\tls13ccstest-bin-ssltestlib.o"
+                "test\\helpers\\tls13ccstest-bin-ssltestlib.o",
+                "test\\helpers\\tls13ticket_test-bin-ssltestlib.o"
             ],
             "products" => {
                 "bin" => [
@@ -12329,7 +12338,8 @@ our %unified_info = (
                     "test\\sslapitest",
                     "test\\sslbuffertest",
                     "test\\sslcorrupttest",
-                    "test\\tls13ccstest"
+                    "test\\tls13ccstest",
+                    "test\\tls13ticket_test"
                 ]
             }
         },
@@ -22487,6 +22497,12 @@ our %unified_info = (
             ".",
             ".\\include"
         ],
+        "test\\helpers\\tls13ticket_test-bin-ssltestlib.o" => [
+            ".",
+            "include",
+            ".",
+            ".\\include"
+        ],
         "test\\hexstr_test" => [
             ".",
             "include",
@@ -23256,6 +23272,12 @@ our %unified_info = (
             "include",
             "apps\\include",
             ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
+        "test\\tls13ticket_test" => [
+            "include",
+            "apps\\include",
             ".\\include",
             ".\\apps\\include"
         ],
@@ -24598,6 +24620,7 @@ our %unified_info = (
         "test\\tls13ccstest",
         "test\\tls13encryptiontest",
         "test\\tls13secretstest",
+        "test\\tls13ticket_test",
         "test\\trace_api_test",
         "test\\uitest",
         "test\\upcallstest",
@@ -34384,6 +34407,9 @@ our %unified_info = (
         "test\\helpers\\tls13ccstest-bin-ssltestlib.o" => [
             ".\\test\\helpers\\ssltestlib.c"
         ],
+        "test\\helpers\\tls13ticket_test-bin-ssltestlib.o" => [
+            ".\\test\\helpers\\ssltestlib.c"
+        ],
         "test\\hexstr_test" => [
             "test\\hexstr_test-bin-hexstr_test.o"
         ],
@@ -35252,6 +35278,13 @@ our %unified_info = (
         ],
         "test\\tls13secretstest-bin-tls13secretstest.o" => [
             ".\\test\\tls13secretstest.c"
+        ],
+        "test\\tls13ticket_test" => [
+            "test\\helpers\\tls13ticket_test-bin-ssltestlib.o",
+            "test\\tls13ticket_test-bin-tls13tickettest.o"
+        ],
+        "test\\tls13ticket_test-bin-tls13tickettest.o" => [
+            ".\\test\\tls13tickettest.c"
         ],
         "test\\trace_api_test" => [
             "test\\trace_api_test-bin-trace_api_test.o"

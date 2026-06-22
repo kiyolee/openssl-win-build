@@ -1,5 +1,5 @@
 /*
- * Copyright 2023-2024 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2023-2026 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -529,6 +529,13 @@ static void port_default_packet_handler(QUIC_URXE *e, void *arg,
      * in this case.
      */
     if (port->tserver_ch == NULL)
+        goto undesirable;
+
+    /*
+     * packet without destination connection id is invalid/corrupted here.
+     * stop wasting CPU cycles now.
+     */
+    if (dcid == NULL)
         goto undesirable;
 
     /*

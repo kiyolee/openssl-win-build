@@ -3695,14 +3695,14 @@ static void quic_classify_stream(QUIC_CONNECTION *qc,
     uint64_t *app_error_code)
 {
     int local_init;
-    uint64_t final_size;
+    uint64_t scratch_pad; /* throw away value */
 
     local_init = (ossl_quic_stream_is_server_init(qs) == qc->as_server);
 
     if (app_error_code != NULL)
         *app_error_code = UINT64_MAX;
     else
-        app_error_code = &final_size; /* throw away value */
+        app_error_code = &scratch_pad;
 
     if (!ossl_quic_stream_is_bidi(qs) && local_init != is_write) {
         /*
@@ -3735,7 +3735,7 @@ static void quic_classify_stream(QUIC_CONNECTION *qc,
         *app_error_code = !is_write
             ? qs->peer_reset_stream_aec
             : qs->peer_stop_sending_aec;
-    } else if (is_write && ossl_quic_sstream_get_final_size(qs->sstream, &final_size)) {
+    } else if (is_write && qs->have_final_size) {
         /*
          * Stream has been finished. Stream reset takes precedence over this for
          * the write case as peer may not have received all data.
