@@ -163,7 +163,7 @@ our %config = (
     ],
     "dynamic_engines" => "0",
     "ex_libs" => [],
-    "full_version" => "3.0.21",
+    "full_version" => "3.0.22",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -214,7 +214,7 @@ our %config = (
     "openssl_sys_defines" => [],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files\\OpenSSL-3 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\ARM64\\Release\\libz-static.lib enable-zlib no-acvp-tests no-afalgeng no-asan no-asm no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-devcryptoeng no-dynamic-engine no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fips no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-ktls no-loadereng no-md2 no-msan no-rc5 no-sctp no-ssl3 no-ssl3-method no-trace no-ubsan no-unit-test no-uplink no-weak-ssl-ciphers no-zlib-dynamic",
-    "patch" => "21",
+    "patch" => "22",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
     "perl_version" => "5.42.2",
@@ -266,11 +266,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned char",
-    "release_date" => "9 Jun 2026",
+    "release_date" => "25 Aug 2026",
     "shlib_version" => "3",
     "sourcedir" => ".",
     "target" => "VC-WIN64-ARM",
-    "version" => "3.0.21"
+    "version" => "3.0.22"
 );
 our %target = (
     "AR" => "lib",
@@ -1179,6 +1179,9 @@ our %unified_info = (
                 "noinst" => "1"
             },
             "test\\cmp_ctx_test" => {
+                "noinst" => "1"
+            },
+            "test\\cmp_extracerts_dos_test" => {
                 "noinst" => "1"
             },
             "test\\cmp_hdr_test" => {
@@ -7589,6 +7592,10 @@ our %unified_info = (
             "libcrypto.a",
             "test\\libtestutil.a"
         ],
+        "test\\cmp_extracerts_dos_test" => [
+            "libcrypto.a",
+            "test\\libtestutil.a"
+        ],
         "test\\cmp_hdr_test" => [
             "libcrypto.a",
             "test\\libtestutil.a"
@@ -10845,6 +10852,7 @@ our %unified_info = (
                 "test\\helpers\\cmp_asn_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_client_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_ctx_test-bin-cmp_testlib.o",
+                "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_hdr_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_msg_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_protect_test-bin-cmp_testlib.o",
@@ -10875,6 +10883,7 @@ our %unified_info = (
                     "test\\cmp_asn_test",
                     "test\\cmp_client_test",
                     "test\\cmp_ctx_test",
+                    "test\\cmp_extracerts_dos_test",
                     "test\\cmp_hdr_test",
                     "test\\cmp_msg_test",
                     "test\\cmp_protect_test",
@@ -19463,6 +19472,14 @@ our %unified_info = (
             ".\\include",
             ".\\apps\\include"
         ],
+        "test\\cmp_extracerts_dos_test" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
         "test\\cmp_hdr_test" => [
             ".",
             "include",
@@ -19830,6 +19847,14 @@ our %unified_info = (
             ".\\apps\\include"
         ],
         "test\\helpers\\cmp_ctx_test-bin-cmp_testlib.o" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
+        "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o" => [
             ".",
             "include",
             "apps\\include",
@@ -21570,6 +21595,7 @@ our %unified_info = (
         "test\\cmp_asn_test",
         "test\\cmp_client_test",
         "test\\cmp_ctx_test",
+        "test\\cmp_extracerts_dos_test",
         "test\\cmp_hdr_test",
         "test\\cmp_msg_test",
         "test\\cmp_protect_test",
@@ -29882,6 +29908,13 @@ our %unified_info = (
         "test\\cmp_ctx_test-bin-cmp_ctx_test.o" => [
             ".\\test\\cmp_ctx_test.c"
         ],
+        "test\\cmp_extracerts_dos_test" => [
+            "test\\cmp_extracerts_dos_test-bin-cmp_extracerts_dos_test.o",
+            "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o"
+        ],
+        "test\\cmp_extracerts_dos_test-bin-cmp_extracerts_dos_test.o" => [
+            ".\\test\\cmp_extracerts_dos_test.c"
+        ],
         "test\\cmp_hdr_test" => [
             "test\\cmp_hdr_test-bin-cmp_hdr_test.o",
             "test\\helpers\\cmp_hdr_test-bin-cmp_testlib.o"
@@ -30209,6 +30242,9 @@ our %unified_info = (
             ".\\test\\helpers\\cmp_testlib.c"
         ],
         "test\\helpers\\cmp_ctx_test-bin-cmp_testlib.o" => [
+            ".\\test\\helpers\\cmp_testlib.c"
+        ],
+        "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o" => [
             ".\\test\\helpers\\cmp_testlib.c"
         ],
         "test\\helpers\\cmp_hdr_test-bin-cmp_testlib.o" => [
