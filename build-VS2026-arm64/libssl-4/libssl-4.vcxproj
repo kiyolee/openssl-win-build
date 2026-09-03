@@ -70,6 +70,7 @@
     <ClCompile Include="..\..\crypto\hashtable\hashfunc.c" />
     <ClCompile Include="..\..\crypto\packet.c" />
     <ClCompile Include="..\..\crypto\quic_vlint.c" />
+    <ClCompile Include="..\..\crypto\rbtree\rbtree.c" />
     <ClCompile Include="..\..\crypto\siphash\siphash.c" />
     <ClCompile Include="..\..\crypto\thread\arch.c" />
     <ClCompile Include="..\..\crypto\thread\arch\thread_none.c" />

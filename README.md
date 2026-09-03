@@ -2,7 +2,7 @@
 
 openssl Windows build with Visual Studio.
 
-This version is openssl-4.0.1.
+This version is openssl-4.0.2.
 
 To build, simply open the required solution file, and
 you know how to use Visual Studio, right?

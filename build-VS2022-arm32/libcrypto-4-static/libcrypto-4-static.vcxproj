@@ -622,6 +622,7 @@
     <ClCompile Include="..\..\crypto\rand\rand_meth.c" />
     <ClCompile Include="..\..\crypto\rand\rand_pool.c" />
     <ClCompile Include="..\..\crypto\rand\rand_uniform.c" />
+    <ClCompile Include="..\..\crypto\rbtree\rbtree.c" />
     <ClCompile Include="..\..\crypto\rc2\rc2cfb64.c" />
     <ClCompile Include="..\..\crypto\rc2\rc2ofb64.c" />
     <ClCompile Include="..\..\crypto\rc2\rc2_cbc.c" />

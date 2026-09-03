@@ -247,6 +247,9 @@
     <Filter Include="Source Files\crypto\slh_dsa">
       <UniqueIdentifier>{883b60be-bec2-4efe-b671-7aec84fea31f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\crypto\rbtree">
+      <UniqueIdentifier>{ed6dbae3-11f2-41b8-af0c-d3ed9d9675d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\crypto\aes\aes_cfb.c">
@@ -2612,6 +2615,9 @@
     </ClCompile>
     <ClCompile Include="..\..\crypto\sha\sha3_encode.c">
       <Filter>Source Files\crypto\sha</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\rbtree\rbtree.c">
+      <Filter>Source Files\crypto\rbtree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
