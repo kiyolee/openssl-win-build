@@ -1688,25 +1688,18 @@ CA_DB *load_index(const char *dbfile, DB_ATTR *db_attr)
         goto err;
 
 #ifndef OPENSSL_NO_POSIX_IO
-    BIO_get_fp(in, &dbfp);
-    if (
-#if !defined(_MSC_VER) || defined(_DLL) || defined(OPENSSL_STATIC_LIB)
-        fstat(fileno(dbfp), &dbst) == -1
-#else
-        /*
-         * When using static VC runtime (/MT) in libcrypto.dll, BIO_get_fp()
-         * returns file pointers from the VC runtime instance in the DLL that
-         * cannot be used here as the VC runtime here is of a different
-         * instance and won't recognize the file pointers and fstat() will
-         * crash. Simply call stat() instead with filename, not ideal
-         * solution but it works.
-         */
-        stat(dbfile, &dbst) == -1
-#endif
-        ) {
-        ERR_raise_data(ERR_LIB_SYS, errno,
-            "calling fstat(%s)", dbfile);
-        goto err;
+    if (BIO_get_fp(in, &dbfp) > 0 && dbfp != NULL) {
+        if (fstat(fileno(dbfp), &dbst) == -1) {
+            ERR_raise_data(ERR_LIB_SYS, errno,
+                "calling fstat(%s)", dbfile);
+            goto err;
+        }
+    } else {
+        if (stat(dbfile, &dbst) == -1) {
+            ERR_raise_data(ERR_LIB_SYS, errno,
+                "calling stat(%s)", dbfile);
+            goto err;
+        }
     }
 #endif
 
@@ -1736,8 +1729,14 @@ CA_DB *load_index(const char *dbfile, DB_ATTR *db_attr)
     }
 
     retdb->dbfname = OPENSSL_strdup(dbfile);
-    if (retdb->dbfname == NULL)
+    if (retdb->dbfname == NULL) {
+        TXT_DB_free(retdb->db);
+        retdb->db = NULL;
+        OPENSSL_free(retdb);
+        retdb = NULL;
+        ERR_raise_data(ERR_LIB_SYS, errno, "Out of memory while copying filename: %s", dbfile);
         goto err;
+    }
 
 #ifndef OPENSSL_NO_POSIX_IO
     retdb->dbst = dbst;
