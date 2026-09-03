@@ -227,7 +227,6 @@ crypto/aes/aes_local.h
 crypto/aes/aes_misc.c
 crypto/aes/aes_ofb.c
 crypto/aes/aes_wrap.c
-crypto/aes/aes_x86core.c
 crypto/aes/asm/aes-586.pl
 crypto/aes/asm/aes-armv4.pl
 crypto/aes/asm/aes-c64xplus.pl
@@ -2041,6 +2040,7 @@ doc/man3/GENERAL_NAME.pod
 doc/man3/HMAC.pod
 doc/man3/MD5.pod
 doc/man3/MDC2_Init.pod
+doc/man3/NAME_CONSTRAINTS_check.pod
 doc/man3/NCONF_new_ex.pod
 doc/man3/OBJ_nid2obj.pod
 doc/man3/OCSP_REQUEST_new.pod
@@ -3655,6 +3655,10 @@ test/certs/cyrillic.pem
 test/certs/cyrillic.utf8
 test/certs/cyrillic_crl.pem
 test/certs/cyrillic_crl.utf8
+test/certs/delta-crl-as-complete-ca.pem
+test/certs/delta-crl-as-complete-delta-reasons.pem
+test/certs/delta-crl-as-complete-delta.pem
+test/certs/delta-crl-as-complete-leaf.pem
 test/certs/dhk2048.pem
 test/certs/dhp2048.pem
 test/certs/ec_privkey_with_chain.pem
@@ -3841,6 +3845,8 @@ test/certs/server-cecdsa-key.pem
 test/certs/server-dsa-cert.pem
 test/certs/server-dsa-key.pem
 test/certs/server-dsa-pubkey.pem
+test/certs/server-ec-compressed-cert.pem
+test/certs/server-ec-compressed-key.pem
 test/certs/server-ecdsa-brainpoolP256r1-cert.pem
 test/certs/server-ecdsa-brainpoolP256r1-key.pem
 test/certs/server-ecdsa-cert.pem
@@ -3899,6 +3905,7 @@ test/cmactest.c
 test/cmp_asn_test.c
 test/cmp_client_test.c
 test/cmp_ctx_test.c
+test/cmp_extracerts_dos_test.c
 test/cmp_hdr_test.c
 test/cmp_msg_test.c
 test/cmp_protect_test.c
@@ -4542,6 +4549,7 @@ test/recipes/15-test_rsapss_data/negativesaltlen.pem
 test/recipes/15-test_rsax931.t
 test/recipes/15-test_sha.t
 test/recipes/20-test_app.t
+test/recipes/20-test_app_s_client.t
 test/recipes/20-test_cli_fips.t
 test/recipes/20-test_dgst.t
 test/recipes/20-test_dhparam.t
@@ -4944,6 +4952,9 @@ test/recipes/80-test_cmp_http_data/test_credentials.csv
 test/recipes/80-test_cmp_http_data/test_enrollment.csv
 test/recipes/80-test_cmp_http_data/test_verification.csv
 test/recipes/80-test_cms.t
+test/recipes/80-test_cms_data/authenticated_attrs.pem
+test/recipes/80-test_cms_data/authenveloped_attrs.pem
+test/recipes/80-test_cms_data/bad_authenveloped_attrs.pem
 test/recipes/80-test_cms_data/bad_signtime_attr.cms
 test/recipes/80-test_cms_data/ciphertext_from_1_1_1.cms
 test/recipes/80-test_cms_data/ct_multiple_attr.cms
@@ -5243,6 +5254,8 @@ test/ssl-tests/30-extended-master-secret.cnf
 test/ssl-tests/30-extended-master-secret.cnf.in
 test/ssl-tests/32-compressed-certificate.cnf
 test/ssl-tests/32-compressed-certificate.cnf.in
+test/ssl-tests/33-compressed-spki.cnf
+test/ssl-tests/33-compressed-spki.cnf.in
 test/ssl-tests/protocol_version.pm
 test/ssl-tests/ssltests_base.pm
 test/ssl_cert_table_internal_test.c

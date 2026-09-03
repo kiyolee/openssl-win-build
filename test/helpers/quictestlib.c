@@ -1,5 +1,5 @@
 /*
- * Copyright 2022-2025 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2022-2026 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -272,6 +272,8 @@ int qtest_create_quic_objects(OSSL_LIB_CTX *libctx, SSL_CTX *clientctx,
     }
 
     SSL_set_bio(*cssl, cbio, cbio);
+    /* Ownership of cbio is now held by *cssl */
+    cbio = NULL;
 
     if (!TEST_true(SSL_set_blocking_mode(*cssl,
             (flags & QTEST_FLAG_BLOCK) != 0 ? 1 : 0)))
