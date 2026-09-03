@@ -177,7 +177,7 @@ our %config = (
     ],
     "dynamic_engines" => "0",
     "ex_libs" => [],
-    "full_version" => "3.6.3",
+    "full_version" => "3.6.4",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -244,7 +244,7 @@ our %config = (
     "openssl_sys_defines" => [],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files\\OpenSSL-3 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\ARM64\\Release\\libz-static.lib enable-zlib no-acvp-tests no-afalgeng no-allocfail-tests no-asan no-asm no-brotli no-brotli-dynamic no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-demos no-devcryptoeng no-dynamic-engine no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fips no-fips-jitter no-fips-post no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-h3demo no-hqinterop no-jitter no-ktls no-lms no-loadereng no-md2 no-msan no-pie no-rc5 no-sctp no-shared no-ssl3 no-ssl3-method no-sslkeylog no-tfo no-trace no-ubsan no-unit-test no-uplink no-weak-ssl-ciphers no-zlib-dynamic no-zstd no-zstd-dynamic",
-    "patch" => "3",
+    "patch" => "4",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
     "perl_version" => "5.42.2",
@@ -298,11 +298,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned char",
-    "release_date" => "9 Jun 2026",
+    "release_date" => "25 Aug 2026",
     "shlib_version" => "3",
     "sourcedir" => ".",
     "target" => "VC-WIN64-ARM",
-    "version" => "3.6.3"
+    "version" => "3.6.4"
 );
 our %target = (
     "AR" => "lib",
@@ -1387,6 +1387,9 @@ our %unified_info = (
             "test\\cmp_ctx_test" => {
                 "noinst" => "1"
             },
+            "test\\cmp_extracerts_dos_test" => {
+                "noinst" => "1"
+            },
             "test\\cmp_hdr_test" => {
                 "noinst" => "1"
             },
@@ -1793,6 +1796,9 @@ our %unified_info = (
                 "noinst" => "1"
             },
             "test\\recordlentest" => {
+                "noinst" => "1"
+            },
+            "test\\rio_poll_builder_test" => {
                 "noinst" => "1"
             },
             "test\\rpktest" => {
@@ -3361,6 +3367,9 @@ our %unified_info = (
         "doc\\html\\man3\\MDC2_Init.html" => [
             ".\\doc\\man3\\MDC2_Init.pod"
         ],
+        "doc\\html\\man3\\NAME_CONSTRAINTS_check.html" => [
+            ".\\doc\\man3\\NAME_CONSTRAINTS_check.pod"
+        ],
         "doc\\html\\man3\\NCONF_new_ex.html" => [
             ".\\doc\\man3\\NCONF_new_ex.pod"
         ],
@@ -3396,6 +3405,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\OPENSSL_LH_stats.html" => [
             ".\\doc\\man3\\OPENSSL_LH_stats.pod"
+        ],
+        "doc\\html\\man3\\OPENSSL_armcap.html" => [
+            ".\\doc\\man3\\OPENSSL_armcap.pod"
         ],
         "doc\\html\\man3\\OPENSSL_config.html" => [
             ".\\doc\\man3\\OPENSSL_config.pod"
@@ -6287,6 +6299,9 @@ our %unified_info = (
         "doc\\man\\man3\\MDC2_Init.3" => [
             ".\\doc\\man3\\MDC2_Init.pod"
         ],
+        "doc\\man\\man3\\NAME_CONSTRAINTS_check.3" => [
+            ".\\doc\\man3\\NAME_CONSTRAINTS_check.pod"
+        ],
         "doc\\man\\man3\\NCONF_new_ex.3" => [
             ".\\doc\\man3\\NCONF_new_ex.pod"
         ],
@@ -6322,6 +6337,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\OPENSSL_LH_stats.3" => [
             ".\\doc\\man3\\OPENSSL_LH_stats.pod"
+        ],
+        "doc\\man\\man3\\OPENSSL_armcap.3" => [
+            ".\\doc\\man3\\OPENSSL_armcap.pod"
         ],
         "doc\\man\\man3\\OPENSSL_config.3" => [
             ".\\doc\\man3\\OPENSSL_config.pod"
@@ -8447,7 +8465,8 @@ our %unified_info = (
             ".\\util\\perl|OpenSSL/paramnames.pm"
         ],
         "providers\\implementations\\keymgmt\\libdefault-lib-ml_kem_kmgmt.o" => [
-            "providers\\common\\include\\prov\\der_hkdf.h"
+            "providers\\common\\include\\prov\\der_hkdf.h",
+            "providers\\common\\include\\prov\\der_wrap.h"
         ],
         "providers\\implementations\\keymgmt\\lms_kmgmt.c" => [
             ".\\util\\perl|OpenSSL/paramnames.pm"
@@ -9055,6 +9074,10 @@ our %unified_info = (
             "libcrypto.a",
             "test\\libtestutil.a"
         ],
+        "test\\cmp_extracerts_dos_test" => [
+            "libcrypto.a",
+            "test\\libtestutil.a"
+        ],
         "test\\cmp_hdr_test" => [
             "libcrypto.a",
             "test\\libtestutil.a"
@@ -9642,6 +9665,11 @@ our %unified_info = (
         "test\\recordlentest" => [
             "libcrypto",
             "libssl",
+            "test\\libtestutil.a"
+        ],
+        "test\\rio_poll_builder_test" => [
+            "libcrypto.a",
+            "libssl.a",
             "test\\libtestutil.a"
         ],
         "test\\rpktest" => [
@@ -12058,6 +12086,7 @@ our %unified_info = (
                 "test\\helpers\\cmp_asn_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_client_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_ctx_test-bin-cmp_testlib.o",
+                "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_hdr_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_msg_test-bin-cmp_testlib.o",
                 "test\\helpers\\cmp_protect_test-bin-cmp_testlib.o",
@@ -12122,6 +12151,7 @@ our %unified_info = (
                     "test\\cmp_asn_test",
                     "test\\cmp_client_test",
                     "test\\cmp_ctx_test",
+                    "test\\cmp_extracerts_dos_test",
                     "test\\cmp_hdr_test",
                     "test\\cmp_msg_test",
                     "test\\cmp_protect_test",
@@ -13940,6 +13970,9 @@ our %unified_info = (
         "doc\\html\\man3\\MDC2_Init.html" => [
             ".\\doc\\man3\\MDC2_Init.pod"
         ],
+        "doc\\html\\man3\\NAME_CONSTRAINTS_check.html" => [
+            ".\\doc\\man3\\NAME_CONSTRAINTS_check.pod"
+        ],
         "doc\\html\\man3\\NCONF_new_ex.html" => [
             ".\\doc\\man3\\NCONF_new_ex.pod"
         ],
@@ -13975,6 +14008,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\OPENSSL_LH_stats.html" => [
             ".\\doc\\man3\\OPENSSL_LH_stats.pod"
+        ],
+        "doc\\html\\man3\\OPENSSL_armcap.html" => [
+            ".\\doc\\man3\\OPENSSL_armcap.pod"
         ],
         "doc\\html\\man3\\OPENSSL_config.html" => [
             ".\\doc\\man3\\OPENSSL_config.pod"
@@ -16811,6 +16847,9 @@ our %unified_info = (
         "doc\\man\\man3\\MDC2_Init.3" => [
             ".\\doc\\man3\\MDC2_Init.pod"
         ],
+        "doc\\man\\man3\\NAME_CONSTRAINTS_check.3" => [
+            ".\\doc\\man3\\NAME_CONSTRAINTS_check.pod"
+        ],
         "doc\\man\\man3\\NCONF_new_ex.3" => [
             ".\\doc\\man3\\NCONF_new_ex.pod"
         ],
@@ -16846,6 +16885,9 @@ our %unified_info = (
         ],
         "doc\\man\\man3\\OPENSSL_LH_stats.3" => [
             ".\\doc\\man3\\OPENSSL_LH_stats.pod"
+        ],
+        "doc\\man\\man3\\OPENSSL_armcap.3" => [
+            ".\\doc\\man3\\OPENSSL_armcap.pod"
         ],
         "doc\\man\\man3\\OPENSSL_config.3" => [
             ".\\doc\\man3\\OPENSSL_config.pod"
@@ -19597,6 +19639,7 @@ our %unified_info = (
             "doc\\html\\man3\\HMAC.html",
             "doc\\html\\man3\\MD5.html",
             "doc\\html\\man3\\MDC2_Init.html",
+            "doc\\html\\man3\\NAME_CONSTRAINTS_check.html",
             "doc\\html\\man3\\NCONF_new_ex.html",
             "doc\\html\\man3\\OBJ_nid2obj.html",
             "doc\\html\\man3\\OCSP_REQUEST_new.html",
@@ -19609,6 +19652,7 @@ our %unified_info = (
             "doc\\html\\man3\\OPENSSL_FILE.html",
             "doc\\html\\man3\\OPENSSL_LH_COMPFUNC.html",
             "doc\\html\\man3\\OPENSSL_LH_stats.html",
+            "doc\\html\\man3\\OPENSSL_armcap.html",
             "doc\\html\\man3\\OPENSSL_config.html",
             "doc\\html\\man3\\OPENSSL_fork_prepare.html",
             "doc\\html\\man3\\OPENSSL_gmtime.html",
@@ -22481,6 +22525,14 @@ our %unified_info = (
             ".\\include",
             ".\\apps\\include"
         ],
+        "test\\cmp_extracerts_dos_test" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
         "test\\cmp_hdr_test" => [
             ".",
             "include",
@@ -22892,6 +22944,14 @@ our %unified_info = (
             ".\\apps\\include"
         ],
         "test\\helpers\\cmp_ctx_test-bin-cmp_testlib.o" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
+        "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o" => [
             ".",
             "include",
             "apps\\include",
@@ -23673,6 +23733,14 @@ our %unified_info = (
             ".\\include",
             ".\\apps\\include"
         ],
+        "test\\rio_poll_builder_test" => [
+            ".",
+            "include",
+            "apps\\include",
+            ".",
+            ".\\include",
+            ".\\apps\\include"
+        ],
         "test\\rpktest" => [
             "include",
             "apps\\include",
@@ -24406,6 +24474,7 @@ our %unified_info = (
             "doc\\man\\man3\\HMAC.3",
             "doc\\man\\man3\\MD5.3",
             "doc\\man\\man3\\MDC2_Init.3",
+            "doc\\man\\man3\\NAME_CONSTRAINTS_check.3",
             "doc\\man\\man3\\NCONF_new_ex.3",
             "doc\\man\\man3\\OBJ_nid2obj.3",
             "doc\\man\\man3\\OCSP_REQUEST_new.3",
@@ -24418,6 +24487,7 @@ our %unified_info = (
             "doc\\man\\man3\\OPENSSL_FILE.3",
             "doc\\man\\man3\\OPENSSL_LH_COMPFUNC.3",
             "doc\\man\\man3\\OPENSSL_LH_stats.3",
+            "doc\\man\\man3\\OPENSSL_armcap.3",
             "doc\\man\\man3\\OPENSSL_config.3",
             "doc\\man\\man3\\OPENSSL_fork_prepare.3",
             "doc\\man\\man3\\OPENSSL_gmtime.3",
@@ -25145,6 +25215,7 @@ our %unified_info = (
         "test\\cmp_asn_test",
         "test\\cmp_client_test",
         "test\\cmp_ctx_test",
+        "test\\cmp_extracerts_dos_test",
         "test\\cmp_hdr_test",
         "test\\cmp_msg_test",
         "test\\cmp_protect_test",
@@ -25281,6 +25352,7 @@ our %unified_info = (
         "test\\rc5test",
         "test\\rdcpu_sanitytest",
         "test\\recordlentest",
+        "test\\rio_poll_builder_test",
         "test\\rpktest",
         "test\\rsa_complex",
         "test\\rsa_mp_test",
@@ -31340,6 +31412,13 @@ our %unified_info = (
         "test\\cmp_ctx_test-bin-cmp_ctx_test.o" => [
             ".\\test\\cmp_ctx_test.c"
         ],
+        "test\\cmp_extracerts_dos_test" => [
+            "test\\cmp_extracerts_dos_test-bin-cmp_extracerts_dos_test.o",
+            "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o"
+        ],
+        "test\\cmp_extracerts_dos_test-bin-cmp_extracerts_dos_test.o" => [
+            ".\\test\\cmp_extracerts_dos_test.c"
+        ],
         "test\\cmp_hdr_test" => [
             "test\\cmp_hdr_test-bin-cmp_hdr_test.o",
             "test\\helpers\\cmp_hdr_test-bin-cmp_testlib.o"
@@ -31711,6 +31790,9 @@ our %unified_info = (
             ".\\test\\helpers\\cmp_testlib.c"
         ],
         "test\\helpers\\cmp_ctx_test-bin-cmp_testlib.o" => [
+            ".\\test\\helpers\\cmp_testlib.c"
+        ],
+        "test\\helpers\\cmp_extracerts_dos_test-bin-cmp_testlib.o" => [
             ".\\test\\helpers\\cmp_testlib.c"
         ],
         "test\\helpers\\cmp_hdr_test-bin-cmp_testlib.o" => [
@@ -32459,6 +32541,12 @@ our %unified_info = (
         ],
         "test\\recordlentest-bin-recordlentest.o" => [
             ".\\test\\recordlentest.c"
+        ],
+        "test\\rio_poll_builder_test" => [
+            "test\\rio_poll_builder_test-bin-rio_poll_builder_test.o"
+        ],
+        "test\\rio_poll_builder_test-bin-rio_poll_builder_test.o" => [
+            ".\\test\\rio_poll_builder_test.c"
         ],
         "test\\rpktest" => [
             "test\\helpers\\rpktest-bin-ssltestlib.o",
