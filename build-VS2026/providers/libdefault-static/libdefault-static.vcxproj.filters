@@ -561,5 +561,17 @@
     <ClCompile Include="..\..\..\providers\implementations\kdfs\srtpkdf.c">
       <Filter>Source Files\providers\implementations\kdfs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c">
+      <Filter>Source Files\providers\implementations\ciphers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_ccm.c">
+      <Filter>Source Files\providers\implementations\ciphers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_gcm.c">
+      <Filter>Source Files\providers\implementations\ciphers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c">
+      <Filter>Source Files\providers\implementations\digests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

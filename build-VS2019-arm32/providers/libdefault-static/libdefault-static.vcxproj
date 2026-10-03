@@ -72,6 +72,9 @@
     <ClCompile Include="..\..\..\providers\common\securitycheck_default.c" />
     <ClCompile Include="..\..\..\providers\implementations\asymciphers\rsa_enc.c" />
     <ClCompile Include="..\..\..\providers\implementations\asymciphers\sm2_enc.c" />
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c" />
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_ccm.c" />
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_gcm.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_aes.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_aes_cbc_hmac_sha.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_aes_cbc_hmac_sha1_etm_hw.c" />
@@ -130,6 +133,7 @@
     <ClCompile Include="..\..\..\providers\implementations\digests\blake2s_prov.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\blake2_prov.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\cshake_prov.c" />
+    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\md5_prov.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\md5_sha1_prov.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\ml_dsa_mu_prov.c" />

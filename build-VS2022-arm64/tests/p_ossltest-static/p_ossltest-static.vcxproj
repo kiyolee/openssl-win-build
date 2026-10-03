@@ -71,7 +71,7 @@ popd</Command>
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>$(OutDir)..\_work\static\p_ossltest.def</ModuleDefinitionFile>
-      <AdditionalDependencies>$(OutDir)..\libcommon-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(OutDir)..\libdefault-static.lib;$(OutDir)..\libcommon-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -81,7 +81,7 @@ popd</Command>
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>$(OutDir)..\_work\static\p_ossltest.def</ModuleDefinitionFile>
-      <AdditionalDependencies>$(OutDir)..\libcommon-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(OutDir)..\libdefault-static.lib;$(OutDir)..\libcommon-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

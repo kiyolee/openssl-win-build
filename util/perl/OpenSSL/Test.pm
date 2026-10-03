@@ -491,6 +491,10 @@ sub run {
     local $_;
 
     open($pipe, '-|', "$prefix$cmd") or die "Can't start command: $!";
+    # Read line by line, even if a recipe played with $/ (slurp or
+    # paragraph mode).  Otherwise, a bare prefix (or only the first
+    # line of a multi-line read) would hit the TAP stream unguarded.
+    local $/ = "\n";
     while(<$pipe>) {
         my $l = ($opts{prefix} // $default_prefix) . $_;
         if ($opts{capture}) {
@@ -1352,11 +1356,13 @@ sub __decorate_cmd {
 
     my $display_cmd = "$cmdstr$stdin$stdout$stderr";
 
-    # VMS program output escapes TAP::Parser
-    if ($^O eq 'VMS') {
-        $stderr=" 2> ".$null
-            unless $stderr || !$ENV{HARNESS_ACTIVE} || $ENV{HARNESS_VERBOSE};
-    }
+    # Under a non-verbose harness nothing drains the command's stderr, so a
+    # chatty command can fill the pipe buffer and then block forever waiting
+    # for a reader that never comes.  Send it to the null device unless the
+    # recipe asked for a specific redirection.  On VMS this also keeps
+    # program output from escaping TAP::Parser.
+    $stderr=" 2> ".$null
+        unless $stderr || !$ENV{HARNESS_ACTIVE} || $ENV{HARNESS_VERBOSE};
 
     $cmdstr .= "$stdin$stdout$stderr";
 

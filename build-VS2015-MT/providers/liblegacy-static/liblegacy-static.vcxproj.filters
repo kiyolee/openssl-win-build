@@ -156,6 +156,12 @@
     <ClCompile Include="..\..\..\providers\implementations\skeymgmt\generic.c">
       <Filter>Source Files\providers\implementations\skeymgmt</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c">
+      <Filter>Source Files\providers\implementations\ciphers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c">
+      <Filter>Source Files\providers\implementations\digests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\..\crypto\des\asm\crypt586.pl">
