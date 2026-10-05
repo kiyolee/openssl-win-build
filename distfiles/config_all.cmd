@@ -1,7 +1,7 @@
 setlocal
 
-set OPENSSL_VER=3.6.4
-set OPENSSL_VER_SED=3\.6\.4
+set OPENSSL_VER=3.6.5
+set OPENSSL_VER_SED=3\.6\.5
 set OPENSSL_BASE=openssl-%OPENSSL_VER%
 set OPENSSL_BASE_SED=openssl-%OPENSSL_VER_SED%
 set OPENSSL_DIR=..\%OPENSSL_BASE%
@@ -80,8 +80,10 @@ set _GEN_LIST_PARAMNAMES_CSRC=^
   providers\implementations\kem\ec_kem.c ^
   providers\implementations\kem\ecx_kem.c ^
   providers\implementations\kem\ml_kem_kem.c ^
+  providers\implementations\kem\mlx_kem.inc ^
   providers\implementations\kem\rsa_kem.c ^
   providers\implementations\keymgmt\ecx_kmgmt.c ^
+  providers\implementations\keymgmt\keymgmtcommon.inc ^
   providers\implementations\keymgmt\lms_kmgmt.c ^
   providers\implementations\keymgmt\ml_dsa_kmgmt.c ^
   providers\implementations\keymgmt\ml_kem_kmgmt.c ^
@@ -104,6 +106,8 @@ set _GEN_LIST_PARAMNAMES_CSRC=^
   providers\implementations\signature\dsa_sig.c ^
   providers\implementations\signature\ecdsa_sig.c ^
   providers\implementations\signature\eddsa_sig.c ^
+  providers\implementations\signature\lms_signature.inc ^
+  providers\implementations\signature\mac_legacy_sig.inc ^
   providers\implementations\signature\ml_dsa_sig.c ^
   providers\implementations\signature\rsa_sig.c ^
   providers\implementations\signature\slh_dsa_sig.c ^
