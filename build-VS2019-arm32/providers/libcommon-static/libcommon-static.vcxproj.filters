@@ -25,9 +25,6 @@
     <Filter Include="Source Files\providers\implementations\ciphers">
       <UniqueIdentifier>{aae90898-88c8-48c5-b91f-58a36ec8b5b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\providers\implementations\digests">
-      <UniqueIdentifier>{bcbb813c-0de5-4a46-b73b-d0ec3e7b8894}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\ssl">
       <UniqueIdentifier>{88f1fafb-360d-4ab2-9140-a08c04285809}</UniqueIdentifier>
     </Filter>
@@ -48,13 +45,7 @@
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_ccm_hw.c">
       <Filter>Source Files\providers\implementations\ciphers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_ccm.c">
-      <Filter>Source Files\providers\implementations\ciphers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_block.c">
-      <Filter>Source Files\providers\implementations\ciphers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c">
       <Filter>Source Files\providers\implementations\ciphers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_hw.c">
@@ -62,12 +53,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_gcm_hw.c">
       <Filter>Source Files\providers\implementations\ciphers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_gcm.c">
-      <Filter>Source Files\providers\implementations\ciphers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c">
-      <Filter>Source Files\providers\implementations\digests</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\providers\common\provider_ctx.c">
       <Filter>Source Files\providers\common</Filter>

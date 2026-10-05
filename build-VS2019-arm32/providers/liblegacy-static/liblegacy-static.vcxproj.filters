@@ -156,5 +156,11 @@
     <ClCompile Include="..\..\..\crypto\rc4\rc4_skey.c">
       <Filter>Source Files\crypto\rc4</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c">
+      <Filter>Source Files\providers\implementations\ciphers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c">
+      <Filter>Source Files\providers\implementations\digests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

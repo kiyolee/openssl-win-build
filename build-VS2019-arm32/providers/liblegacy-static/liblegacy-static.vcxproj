@@ -65,6 +65,7 @@
     <ClCompile Include="..\..\..\crypto\rc4\rc4_enc.c" />
     <ClCompile Include="..\..\..\crypto\rc4\rc4_skey.c" />
     <ClCompile Include="..\..\..\providers\common\provider_util.c" />
+    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_blowfish.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_blowfish_hw.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_cast5.c" />
@@ -84,6 +85,7 @@
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_seed.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_seed_hw.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\cipher_tdes_common.c" />
+    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\md4_prov.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\mdc2_prov.c" />
     <ClCompile Include="..\..\..\providers\implementations\digests\ripemd_prov.c" />

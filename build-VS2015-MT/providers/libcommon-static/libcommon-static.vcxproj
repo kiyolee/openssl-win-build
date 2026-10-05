@@ -115,14 +115,10 @@
     <ClCompile Include="..\..\..\providers\common\der\der_wrap_gen.c" />
     <ClCompile Include="..\..\..\providers\common\provider_ctx.c" />
     <ClCompile Include="..\..\..\providers\common\provider_err.c" />
-    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_block.c" />
-    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_ccm.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_ccm_hw.c" />
-    <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_gcm.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_gcm_hw.c" />
     <ClCompile Include="..\..\..\providers\implementations\ciphers\ciphercommon_hw.c" />
-    <ClCompile Include="..\..\..\providers\implementations\digests\digestcommon.c" />
     <ClCompile Include="..\..\..\ssl\record\methods\tls_pad.c" />
   </ItemGroup>
 </Project>

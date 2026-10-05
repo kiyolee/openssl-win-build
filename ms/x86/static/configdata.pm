@@ -138,6 +138,7 @@ our %config = (
         ".\\crypto\\thread\\build.info",
         ".\\crypto\\ml_dsa\\build.info",
         ".\\crypto\\slh_dsa\\build.info",
+        ".\\crypto\\rbtree\\build.info",
         ".\\ssl\\record\\build.info",
         ".\\ssl\\rio\\build.info",
         ".\\ssl\\quic\\build.info",
@@ -177,7 +178,7 @@ our %config = (
     ],
     "dynamic_engines" => "0",
     "ex_libs" => [],
-    "full_version" => "3.5.8",
+    "full_version" => "3.5.9",
     "includes" => [],
     "lflags" => [],
     "lib_defines" => [
@@ -243,7 +244,7 @@ our %config = (
     ],
     "openssldir" => "",
     "options" => "--prefix=C:\\Program Files (x86)\\OpenSSL-3 --with-zlib-include=..\\zlib --with-zlib-lib=..\\zlib\\build\\Release\\libz-static.lib enable-zlib no-acvp-tests no-afalgeng no-asan no-brotli no-brotli-dynamic no-buildtest-c++ no-crypto-mdebug no-crypto-mdebug-backtrace no-demos no-devcryptoeng no-dynamic-engine no-ec_nistp_64_gcc_128 no-egd no-external-tests no-fips no-fips-jitter no-fips-post no-fips-securitychecks no-fuzz-afl no-fuzz-libfuzzer no-h3demo no-hqinterop no-jitter no-ktls no-loadereng no-md2 no-msan no-pie no-rc5 no-sctp no-shared no-ssl3 no-ssl3-method no-sslkeylog no-tfo no-trace no-ubsan no-unit-test no-uplink no-weak-ssl-ciphers no-zlib-dynamic no-zstd no-zstd-dynamic",
-    "patch" => "8",
+    "patch" => "9",
     "perl_archname" => "MSWin32-x64-multi-thread",
     "perl_cmd" => "C:\\Strawberry\\perl\\bin\\perl.exe",
     "perl_version" => "5.42.2",
@@ -297,11 +298,11 @@ our %config = (
     "prerelease" => "",
     "processor" => "",
     "rc4_int" => "unsigned int",
-    "release_date" => "25 Aug 2026",
+    "release_date" => "29 Sep 2026",
     "shlib_version" => "3",
     "sourcedir" => ".",
     "target" => "VC-WIN32",
-    "version" => "3.5.8"
+    "version" => "3.5.9"
 );
 our %target = (
     "AR" => "lib",
@@ -342,7 +343,7 @@ our %target = (
         "VC-common",
         "VC-WOW"
     ],
-    "cflags" => "/Gs0 /GF /Gy",
+    "cflags" => "/GF /Gy",
     "coutflag" => "/Fo",
     "cppflags" => "",
     "defines" => [
@@ -1614,6 +1615,9 @@ our %unified_info = (
                 "noinst" => "1"
             },
             "test\\ocspapitest" => {
+                "noinst" => "1"
+            },
+            "test\\ossl_rbtree_test" => {
                 "noinst" => "1"
             },
             "test\\ossl_store_test" => {
@@ -4382,6 +4386,9 @@ our %unified_info = (
         ],
         "doc\\html\\man3\\UI_new.html" => [
             ".\\doc\\man3\\UI_new.pod"
+        ],
+        "doc\\html\\man3\\X509V3_EXT_nconf_nid.html" => [
+            ".\\doc\\man3\\X509V3_EXT_nconf_nid.pod"
         ],
         "doc\\html\\man3\\X509V3_EXT_print.html" => [
             ".\\doc\\man3\\X509V3_EXT_print.pod"
@@ -7302,6 +7309,9 @@ our %unified_info = (
         "doc\\man\\man3\\UI_new.3" => [
             ".\\doc\\man3\\UI_new.pod"
         ],
+        "doc\\man\\man3\\X509V3_EXT_nconf_nid.3" => [
+            ".\\doc\\man3\\X509V3_EXT_nconf_nid.pod"
+        ],
         "doc\\man\\man3\\X509V3_EXT_print.3" => [
             ".\\doc\\man3\\X509V3_EXT_print.pod"
         ],
@@ -9133,6 +9143,10 @@ our %unified_info = (
             "libcrypto",
             "test\\libtestutil.a"
         ],
+        "test\\ossl_rbtree_test" => [
+            "libcrypto.a",
+            "test\\libtestutil.a"
+        ],
         "test\\ossl_store_test" => [
             "libcrypto.a",
             "test\\libtestutil.a"
@@ -10821,6 +10835,16 @@ our %unified_info = (
                 ]
             }
         },
+        "crypto\\rbtree" => {
+            "deps" => [
+                "crypto\\rbtree\\libcrypto-lib-rbtree.o"
+            ],
+            "products" => {
+                "lib" => [
+                    "libcrypto"
+                ]
+            }
+        },
         "crypto\\rc2" => {
             "deps" => [
                 "crypto\\rc2\\libcrypto-lib-rc2_cbc.o",
@@ -11345,11 +11369,8 @@ our %unified_info = (
         },
         "providers\\implementations\\ciphers" => {
             "deps" => [
-                "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon.o",
                 "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_block.o",
-                "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_ccm.o",
                 "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_ccm_hw.o",
-                "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_gcm.o",
                 "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_gcm_hw.o",
                 "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_hw.o",
                 "providers\\implementations\\ciphers\\libdefault-lib-cipher_aes.o",
@@ -11401,6 +11422,9 @@ our %unified_info = (
                 "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_hw.o",
                 "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_wrap.o",
                 "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_wrap_hw.o",
+                "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon.o",
+                "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon_ccm.o",
+                "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon_gcm.o",
                 "providers\\implementations\\ciphers\\liblegacy-lib-cipher_blowfish.o",
                 "providers\\implementations\\ciphers\\liblegacy-lib-cipher_blowfish_hw.o",
                 "providers\\implementations\\ciphers\\liblegacy-lib-cipher_cast5.o",
@@ -11419,7 +11443,8 @@ our %unified_info = (
                 "providers\\implementations\\ciphers\\liblegacy-lib-cipher_rc4_hw.o",
                 "providers\\implementations\\ciphers\\liblegacy-lib-cipher_seed.o",
                 "providers\\implementations\\ciphers\\liblegacy-lib-cipher_seed_hw.o",
-                "providers\\implementations\\ciphers\\liblegacy-lib-cipher_tdes_common.o"
+                "providers\\implementations\\ciphers\\liblegacy-lib-cipher_tdes_common.o",
+                "providers\\implementations\\ciphers\\liblegacy-lib-ciphercommon.o"
             ],
             "products" => {
                 "lib" => [
@@ -11431,10 +11456,10 @@ our %unified_info = (
         },
         "providers\\implementations\\digests" => {
             "deps" => [
-                "providers\\implementations\\digests\\libcommon-lib-digestcommon.o",
                 "providers\\implementations\\digests\\libdefault-lib-blake2_prov.o",
                 "providers\\implementations\\digests\\libdefault-lib-blake2b_prov.o",
                 "providers\\implementations\\digests\\libdefault-lib-blake2s_prov.o",
+                "providers\\implementations\\digests\\libdefault-lib-digestcommon.o",
                 "providers\\implementations\\digests\\libdefault-lib-md5_prov.o",
                 "providers\\implementations\\digests\\libdefault-lib-md5_sha1_prov.o",
                 "providers\\implementations\\digests\\libdefault-lib-null_prov.o",
@@ -11442,6 +11467,7 @@ our %unified_info = (
                 "providers\\implementations\\digests\\libdefault-lib-sha2_prov.o",
                 "providers\\implementations\\digests\\libdefault-lib-sha3_prov.o",
                 "providers\\implementations\\digests\\libdefault-lib-sm3_prov.o",
+                "providers\\implementations\\digests\\liblegacy-lib-digestcommon.o",
                 "providers\\implementations\\digests\\liblegacy-lib-md4_prov.o",
                 "providers\\implementations\\digests\\liblegacy-lib-mdc2_prov.o",
                 "providers\\implementations\\digests\\liblegacy-lib-ripemd_prov.o",
@@ -11449,7 +11475,6 @@ our %unified_info = (
             ],
             "products" => {
                 "lib" => [
-                    "providers\\libcommon.a",
                     "providers\\libdefault.a",
                     "providers\\liblegacy.a"
                 ]
@@ -11708,12 +11733,12 @@ our %unified_info = (
                 "ssl\\quic\\libssl-lib-quic_record_util.o",
                 "ssl\\quic\\libssl-lib-quic_rstream.o",
                 "ssl\\quic\\libssl-lib-quic_rx_depack.o",
-                "ssl\\quic\\libssl-lib-quic_sf_list.o",
                 "ssl\\quic\\libssl-lib-quic_srt_gen.o",
                 "ssl\\quic\\libssl-lib-quic_srtm.o",
                 "ssl\\quic\\libssl-lib-quic_sstream.o",
                 "ssl\\quic\\libssl-lib-quic_statm.o",
                 "ssl\\quic\\libssl-lib-quic_stream_map.o",
+                "ssl\\quic\\libssl-lib-quic_strm_reas.o",
                 "ssl\\quic\\libssl-lib-quic_thread_assist.o",
                 "ssl\\quic\\libssl-lib-quic_tls.o",
                 "ssl\\quic\\libssl-lib-quic_tls_api.o",
@@ -14679,6 +14704,9 @@ our %unified_info = (
         "doc\\html\\man3\\UI_new.html" => [
             ".\\doc\\man3\\UI_new.pod"
         ],
+        "doc\\html\\man3\\X509V3_EXT_nconf_nid.html" => [
+            ".\\doc\\man3\\X509V3_EXT_nconf_nid.pod"
+        ],
         "doc\\html\\man3\\X509V3_EXT_print.html" => [
             ".\\doc\\man3\\X509V3_EXT_print.pod"
         ],
@@ -17544,6 +17572,9 @@ our %unified_info = (
         "doc\\man\\man3\\UI_new.3" => [
             ".\\doc\\man3\\UI_new.pod"
         ],
+        "doc\\man\\man3\\X509V3_EXT_nconf_nid.3" => [
+            ".\\doc\\man3\\X509V3_EXT_nconf_nid.pod"
+        ],
         "doc\\man\\man3\\X509V3_EXT_print.3" => [
             ".\\doc\\man3\\X509V3_EXT_print.pod"
         ],
@@ -19425,6 +19456,7 @@ our %unified_info = (
             "doc\\html\\man3\\UI_UTIL_read_pw.html",
             "doc\\html\\man3\\UI_create_method.html",
             "doc\\html\\man3\\UI_new.html",
+            "doc\\html\\man3\\X509V3_EXT_nconf_nid.html",
             "doc\\html\\man3\\X509V3_EXT_print.html",
             "doc\\html\\man3\\X509V3_get_d2i.html",
             "doc\\html\\man3\\X509V3_set_ctx.html",
@@ -22502,6 +22534,12 @@ our %unified_info = (
             ".\\include",
             ".\\apps\\include"
         ],
+        "test\\ossl_rbtree_test" => [
+            "include",
+            "apps\\include",
+            ".\\include",
+            ".\\apps\\include"
+        ],
         "test\\ossl_store_test" => [
             "include",
             "apps\\include",
@@ -23953,6 +23991,7 @@ our %unified_info = (
             "doc\\man\\man3\\UI_UTIL_read_pw.3",
             "doc\\man\\man3\\UI_create_method.3",
             "doc\\man\\man3\\UI_new.3",
+            "doc\\man\\man3\\X509V3_EXT_nconf_nid.3",
             "doc\\man\\man3\\X509V3_EXT_print.3",
             "doc\\man\\man3\\X509V3_get_d2i.3",
             "doc\\man\\man3\\X509V3_set_ctx.3",
@@ -24423,6 +24462,7 @@ our %unified_info = (
         "test\\namemap_internal_test",
         "test\\nodefltctxtest",
         "test\\ocspapitest",
+        "test\\ossl_rbtree_test",
         "test\\ossl_store_test",
         "test\\packettest",
         "test\\pairwise_fail_test",
@@ -26759,6 +26799,9 @@ our %unified_info = (
         "crypto\\rand\\libcrypto-lib-randfile.o" => [
             ".\\crypto\\rand\\randfile.c"
         ],
+        "crypto\\rbtree\\libcrypto-lib-rbtree.o" => [
+            ".\\crypto\\rbtree\\rbtree.c"
+        ],
         "crypto\\rc2\\libcrypto-lib-rc2_cbc.o" => [
             ".\\crypto\\rc2\\rc2_cbc.c"
         ],
@@ -28353,6 +28396,7 @@ our %unified_info = (
             "crypto\\rand\\libcrypto-lib-rand_pool.o",
             "crypto\\rand\\libcrypto-lib-rand_uniform.o",
             "crypto\\rand\\libcrypto-lib-randfile.o",
+            "crypto\\rbtree\\libcrypto-lib-rbtree.o",
             "crypto\\rc2\\libcrypto-lib-rc2_cbc.o",
             "crypto\\rc2\\libcrypto-lib-rc2_ecb.o",
             "crypto\\rc2\\libcrypto-lib-rc2_skey.o",
@@ -28620,12 +28664,12 @@ our %unified_info = (
             "ssl\\quic\\libssl-lib-quic_record_util.o",
             "ssl\\quic\\libssl-lib-quic_rstream.o",
             "ssl\\quic\\libssl-lib-quic_rx_depack.o",
-            "ssl\\quic\\libssl-lib-quic_sf_list.o",
             "ssl\\quic\\libssl-lib-quic_srt_gen.o",
             "ssl\\quic\\libssl-lib-quic_srtm.o",
             "ssl\\quic\\libssl-lib-quic_sstream.o",
             "ssl\\quic\\libssl-lib-quic_statm.o",
             "ssl\\quic\\libssl-lib-quic_stream_map.o",
+            "ssl\\quic\\libssl-lib-quic_strm_reas.o",
             "ssl\\quic\\libssl-lib-quic_thread_assist.o",
             "ssl\\quic\\libssl-lib-quic_tls.o",
             "ssl\\quic\\libssl-lib-quic_tls_api.o",
@@ -28758,20 +28802,11 @@ our %unified_info = (
         "providers\\implementations\\asymciphers\\libdefault-lib-sm2_enc.o" => [
             ".\\providers\\implementations\\asymciphers\\sm2_enc.c"
         ],
-        "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon.o" => [
-            ".\\providers\\implementations\\ciphers\\ciphercommon.c"
-        ],
         "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_block.o" => [
             ".\\providers\\implementations\\ciphers\\ciphercommon_block.c"
         ],
-        "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_ccm.o" => [
-            ".\\providers\\implementations\\ciphers\\ciphercommon_ccm.c"
-        ],
         "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_ccm_hw.o" => [
             ".\\providers\\implementations\\ciphers\\ciphercommon_ccm_hw.c"
-        ],
-        "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_gcm.o" => [
-            ".\\providers\\implementations\\ciphers\\ciphercommon_gcm.c"
         ],
         "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_gcm_hw.o" => [
             ".\\providers\\implementations\\ciphers\\ciphercommon_gcm_hw.c"
@@ -28926,6 +28961,15 @@ our %unified_info = (
         "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_wrap_hw.o" => [
             ".\\providers\\implementations\\ciphers\\cipher_tdes_wrap_hw.c"
         ],
+        "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon.o" => [
+            ".\\providers\\implementations\\ciphers\\ciphercommon.c"
+        ],
+        "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon_ccm.o" => [
+            ".\\providers\\implementations\\ciphers\\ciphercommon_ccm.c"
+        ],
+        "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon_gcm.o" => [
+            ".\\providers\\implementations\\ciphers\\ciphercommon_gcm.c"
+        ],
         "providers\\implementations\\ciphers\\liblegacy-lib-cipher_blowfish.o" => [
             ".\\providers\\implementations\\ciphers\\cipher_blowfish.c"
         ],
@@ -28983,8 +29027,8 @@ our %unified_info = (
         "providers\\implementations\\ciphers\\liblegacy-lib-cipher_tdes_common.o" => [
             ".\\providers\\implementations\\ciphers\\cipher_tdes_common.c"
         ],
-        "providers\\implementations\\digests\\libcommon-lib-digestcommon.o" => [
-            ".\\providers\\implementations\\digests\\digestcommon.c"
+        "providers\\implementations\\ciphers\\liblegacy-lib-ciphercommon.o" => [
+            ".\\providers\\implementations\\ciphers\\ciphercommon.c"
         ],
         "providers\\implementations\\digests\\libdefault-lib-blake2_prov.o" => [
             ".\\providers\\implementations\\digests\\blake2_prov.c"
@@ -28994,6 +29038,9 @@ our %unified_info = (
         ],
         "providers\\implementations\\digests\\libdefault-lib-blake2s_prov.o" => [
             ".\\providers\\implementations\\digests\\blake2s_prov.c"
+        ],
+        "providers\\implementations\\digests\\libdefault-lib-digestcommon.o" => [
+            ".\\providers\\implementations\\digests\\digestcommon.c"
         ],
         "providers\\implementations\\digests\\libdefault-lib-md5_prov.o" => [
             ".\\providers\\implementations\\digests\\md5_prov.c"
@@ -29015,6 +29062,9 @@ our %unified_info = (
         ],
         "providers\\implementations\\digests\\libdefault-lib-sm3_prov.o" => [
             ".\\providers\\implementations\\digests\\sm3_prov.c"
+        ],
+        "providers\\implementations\\digests\\liblegacy-lib-digestcommon.o" => [
+            ".\\providers\\implementations\\digests\\digestcommon.c"
         ],
         "providers\\implementations\\digests\\liblegacy-lib-md4_prov.o" => [
             ".\\providers\\implementations\\digests\\md4_prov.c"
@@ -29310,14 +29360,10 @@ our %unified_info = (
             "providers\\common\\der\\libcommon-lib-der_wrap_gen.o",
             "providers\\common\\libcommon-lib-provider_ctx.o",
             "providers\\common\\libcommon-lib-provider_err.o",
-            "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon.o",
             "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_block.o",
-            "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_ccm.o",
             "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_ccm_hw.o",
-            "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_gcm.o",
             "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_gcm_hw.o",
             "providers\\implementations\\ciphers\\libcommon-lib-ciphercommon_hw.o",
-            "providers\\implementations\\digests\\libcommon-lib-digestcommon.o",
             "ssl\\record\\methods\\libcommon-lib-tls_pad.o"
         ],
         "providers\\libcrypto-lib-baseprov.o" => [
@@ -29395,9 +29441,13 @@ our %unified_info = (
             "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_hw.o",
             "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_wrap.o",
             "providers\\implementations\\ciphers\\libdefault-lib-cipher_tdes_wrap_hw.o",
+            "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon.o",
+            "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon_ccm.o",
+            "providers\\implementations\\ciphers\\libdefault-lib-ciphercommon_gcm.o",
             "providers\\implementations\\digests\\libdefault-lib-blake2_prov.o",
             "providers\\implementations\\digests\\libdefault-lib-blake2b_prov.o",
             "providers\\implementations\\digests\\libdefault-lib-blake2s_prov.o",
+            "providers\\implementations\\digests\\libdefault-lib-digestcommon.o",
             "providers\\implementations\\digests\\libdefault-lib-md5_prov.o",
             "providers\\implementations\\digests\\libdefault-lib-md5_sha1_prov.o",
             "providers\\implementations\\digests\\libdefault-lib-null_prov.o",
@@ -29510,6 +29560,8 @@ our %unified_info = (
             "providers\\implementations\\ciphers\\liblegacy-lib-cipher_seed.o",
             "providers\\implementations\\ciphers\\liblegacy-lib-cipher_seed_hw.o",
             "providers\\implementations\\ciphers\\liblegacy-lib-cipher_tdes_common.o",
+            "providers\\implementations\\ciphers\\liblegacy-lib-ciphercommon.o",
+            "providers\\implementations\\digests\\liblegacy-lib-digestcommon.o",
             "providers\\implementations\\digests\\liblegacy-lib-md4_prov.o",
             "providers\\implementations\\digests\\liblegacy-lib-mdc2_prov.o",
             "providers\\implementations\\digests\\liblegacy-lib-ripemd_prov.o",
@@ -29690,9 +29742,6 @@ our %unified_info = (
         "ssl\\quic\\libssl-lib-quic_rx_depack.o" => [
             ".\\ssl\\quic\\quic_rx_depack.c"
         ],
-        "ssl\\quic\\libssl-lib-quic_sf_list.o" => [
-            ".\\ssl\\quic\\quic_sf_list.c"
-        ],
         "ssl\\quic\\libssl-lib-quic_srt_gen.o" => [
             ".\\ssl\\quic\\quic_srt_gen.c"
         ],
@@ -29707,6 +29756,9 @@ our %unified_info = (
         ],
         "ssl\\quic\\libssl-lib-quic_stream_map.o" => [
             ".\\ssl\\quic\\quic_stream_map.c"
+        ],
+        "ssl\\quic\\libssl-lib-quic_strm_reas.o" => [
+            ".\\ssl\\quic\\quic_strm_reas.c"
         ],
         "ssl\\quic\\libssl-lib-quic_thread_assist.o" => [
             ".\\ssl\\quic\\quic_thread_assist.c"
@@ -31249,6 +31301,12 @@ our %unified_info = (
         ],
         "test\\ocspapitest-bin-ocspapitest.o" => [
             ".\\test\\ocspapitest.c"
+        ],
+        "test\\ossl_rbtree_test" => [
+            "test\\ossl_rbtree_test-bin-ossl_rbtree_test.o"
+        ],
+        "test\\ossl_rbtree_test-bin-ossl_rbtree_test.o" => [
+            ".\\test\\ossl_rbtree_test.c"
         ],
         "test\\ossl_store_test" => [
             "test\\ossl_store_test-bin-ossl_store_test.o"
