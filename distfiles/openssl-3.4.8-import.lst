@@ -1127,6 +1127,8 @@ crypto/rand/rand_meth.c
 crypto/rand/rand_pool.c
 crypto/rand/rand_uniform.c
 crypto/rand/randfile.c
+crypto/rbtree/build.info
+crypto/rbtree/rbtree.c
 crypto/rc2/build.info
 crypto/rc2/rc2_cbc.c
 crypto/rc2/rc2_ecb.c
@@ -1710,6 +1712,7 @@ doc/internal/man7/EVP_PKEY.pod
 doc/internal/man7/VERSION.pod
 doc/internal/man7/build.info.pod
 doc/internal/man7/deprecation.pod
+doc/internal/man7/ossl_rbtree.pod
 doc/life-cycles/Makefile
 doc/life-cycles/README.md
 doc/life-cycles/cipher.dot
@@ -2835,6 +2838,7 @@ include/internal/namemap.h
 include/internal/nelem.h
 include/internal/numbers.h
 include/internal/o_dir.h
+include/internal/ossl_rbtree.h
 include/internal/packet.h
 include/internal/packet_quic.h
 include/internal/param_build_set.h
@@ -2866,13 +2870,13 @@ include/internal/quic_record_rx.h
 include/internal/quic_record_tx.h
 include/internal/quic_record_util.h
 include/internal/quic_rx_depack.h
-include/internal/quic_sf_list.h
 include/internal/quic_srt_gen.h
 include/internal/quic_srtm.h
 include/internal/quic_ssl.h
 include/internal/quic_statm.h
 include/internal/quic_stream.h
 include/internal/quic_stream_map.h
+include/internal/quic_strm_reas.h
 include/internal/quic_thread_assist.h
 include/internal/quic_tls.h
 include/internal/quic_tserver.h
@@ -3426,18 +3430,19 @@ ssl/quic/quic_port_local.h
 ssl/quic/quic_rcidm.c
 ssl/quic/quic_reactor.c
 ssl/quic/quic_record_rx.c
+ssl/quic/quic_record_rx_local.h
 ssl/quic/quic_record_shared.c
 ssl/quic/quic_record_shared.h
 ssl/quic/quic_record_tx.c
 ssl/quic/quic_record_util.c
 ssl/quic/quic_rstream.c
 ssl/quic/quic_rx_depack.c
-ssl/quic/quic_sf_list.c
 ssl/quic/quic_srt_gen.c
 ssl/quic/quic_srtm.c
 ssl/quic/quic_sstream.c
 ssl/quic/quic_statm.c
 ssl/quic/quic_stream_map.c
+ssl/quic/quic_strm_reas.c
 ssl/quic/quic_thread_assist.c
 ssl/quic/quic_tls.c
 ssl/quic/quic_trace.c
@@ -4124,6 +4129,7 @@ test/ocsp-tests/server-csr.pem
 test/ocsp-tests/server-key.pem
 test/ocsp-tests/server.pem
 test/ocspapitest.c
+test/ossl_rbtree_test.c
 test/ossl_store_test.c
 test/p_minimal.c
 test/p_test.c
@@ -4208,6 +4214,7 @@ test/recipes/02-test_list.t
 test/recipes/02-test_localetest.t
 test/recipes/02-test_ordinals.t
 test/recipes/02-test_priority_queue.t
+test/recipes/02-test_rbtree.t
 test/recipes/02-test_sparse_array.t
 test/recipes/02-test_stack.t
 test/recipes/02-test_strtoul.t
@@ -4970,6 +4977,7 @@ test/recipes/80-test_cms_data/pkcs7-md4-encrypted.pem
 test/recipes/80-test_cms_data/pkcs7-md4.pem
 test/recipes/80-test_cms_data/rsa-malformed.der
 test/recipes/80-test_cmsapi.t
+test/recipes/80-test_cmsapi_data/cms_pwri_kek_NoIV.der
 test/recipes/80-test_cmsapi_data/cms_pwri_kek_oob.der
 test/recipes/80-test_cmsapi_data/encDataWithTooLongIV.pem
 test/recipes/80-test_cmsapi_data/encryptedData.der

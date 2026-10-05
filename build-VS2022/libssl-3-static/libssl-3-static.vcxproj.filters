@@ -237,9 +237,6 @@
     <ClCompile Include="..\..\ssl\quic\quic_rstream.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ssl\quic\quic_sf_list.c">
-      <Filter>Source Files\ssl\quic</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\ssl\quic\quic_sstream.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
@@ -301,6 +298,9 @@
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ssl\quic\qlog.c">
+      <Filter>Source Files\ssl\quic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ssl\quic\quic_strm_reas.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
   </ItemGroup>

@@ -43,6 +43,9 @@
     <Filter Include="Source Files\ssl\rio">
       <UniqueIdentifier>{20010bcf-7168-4e51-ba73-81293249b877}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\crypto\rbtree">
+      <UniqueIdentifier>{eec5effa-7f5d-46b8-b695-d27cbbf301eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ssl\ssl_lib.c">
@@ -261,9 +264,6 @@
     <ClCompile Include="..\..\ssl\quic\quic_rstream.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ssl\quic\quic_sf_list.c">
-      <Filter>Source Files\ssl\quic</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\ssl\quic\quic_sstream.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
@@ -343,6 +343,12 @@
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ssl\quic\qlog.c">
+      <Filter>Source Files\ssl\quic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\rbtree\rbtree.c">
+      <Filter>Source Files\crypto\rbtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ssl\quic\quic_strm_reas.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>
   </ItemGroup>

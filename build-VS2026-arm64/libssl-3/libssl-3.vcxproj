@@ -69,6 +69,7 @@
     <ClCompile Include="..\..\crypto\getenv.c" />
     <ClCompile Include="..\..\crypto\packet.c" />
     <ClCompile Include="..\..\crypto\quic_vlint.c" />
+    <ClCompile Include="..\..\crypto\rbtree\rbtree.c" />
     <ClCompile Include="..\..\crypto\thread\arch.c" />
     <ClCompile Include="..\..\crypto\thread\arch\thread_none.c" />
     <ClCompile Include="..\..\crypto\thread\arch\thread_posix.c" />
@@ -104,12 +105,12 @@
     <ClCompile Include="..\..\ssl\quic\quic_record_util.c" />
     <ClCompile Include="..\..\ssl\quic\quic_rstream.c" />
     <ClCompile Include="..\..\ssl\quic\quic_rx_depack.c" />
-    <ClCompile Include="..\..\ssl\quic\quic_sf_list.c" />
     <ClCompile Include="..\..\ssl\quic\quic_srtm.c" />
     <ClCompile Include="..\..\ssl\quic\quic_srt_gen.c" />
     <ClCompile Include="..\..\ssl\quic\quic_sstream.c" />
     <ClCompile Include="..\..\ssl\quic\quic_statm.c" />
     <ClCompile Include="..\..\ssl\quic\quic_stream_map.c" />
+    <ClCompile Include="..\..\ssl\quic\quic_strm_reas.c" />
     <ClCompile Include="..\..\ssl\quic\quic_thread_assist.c" />
     <ClCompile Include="..\..\ssl\quic\quic_tls.c" />
     <ClCompile Include="..\..\ssl\quic\quic_trace.c" />

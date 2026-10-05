@@ -274,6 +274,9 @@
     <Filter Include="Source Files\crypto\hashtable">
       <UniqueIdentifier>{e0d5d026-771b-47aa-8d26-af5053edcb2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\crypto\rbtree">
+      <UniqueIdentifier>{ed6dbae3-11f2-41b8-af0c-d3ed9d9675d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\crypto\aes\aes_cfb.c">
@@ -2612,6 +2615,9 @@
     </ClCompile>
     <ClCompile Include="..\..\crypto\ssl_err.c">
       <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\rbtree\rbtree.c">
+      <Filter>Source Files\crypto\rbtree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
