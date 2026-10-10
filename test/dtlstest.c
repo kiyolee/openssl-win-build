@@ -843,7 +843,7 @@ static int test_dtls_client_retransmit(void)
     /* Pad the ClientHello out via ALPN so it needs multiple fragments. */
     for (j = 0; j < 3; j++) {
         char name[250];
-        int n = snprintf(name, sizeof(name),
+        int n = BIO_snprintf(name, sizeof(name),
             "proto-%04u-%s", (unsigned int)j,
             "padpadpadpadpadpadpadpadpadpadpadpadpadpadpad"
             "padpadpadpadpadpadpadpadpadpadpadpadpadpadpad"
