@@ -15,6 +15,7 @@
     <ProjectGuid>{B53478C4-8541-490C-9262-7C97E2031857}</ProjectGuid>
     <RootNamespace>dtlsssllistenertest-static</RootNamespace>
     <ProjectName>dtlsssllistenertest</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">

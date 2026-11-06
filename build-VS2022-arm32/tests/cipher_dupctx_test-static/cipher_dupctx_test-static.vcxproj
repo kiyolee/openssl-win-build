@@ -15,6 +15,7 @@
     <ProjectGuid>{36F1FA6B-1E4B-470C-993A-08168B69ACAC}</ProjectGuid>
     <RootNamespace>cipher_dupctx_test-static</RootNamespace>
     <ProjectName>cipher_dupctx_test</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">

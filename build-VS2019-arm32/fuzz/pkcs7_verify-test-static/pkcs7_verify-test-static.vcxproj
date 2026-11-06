@@ -15,6 +15,7 @@
     <ProjectGuid>{0F9A6DCA-C022-478C-AADD-A37D68A6F374}</ProjectGuid>
     <RootNamespace>pkcs7_verify-test-static</RootNamespace>
     <ProjectName>pkcs7_verify-test</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">

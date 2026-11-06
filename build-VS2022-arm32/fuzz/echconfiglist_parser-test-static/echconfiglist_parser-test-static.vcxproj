@@ -15,6 +15,7 @@
     <ProjectGuid>{96030F9F-E570-4F22-912B-60C7F6D30D48}</ProjectGuid>
     <RootNamespace>echconfiglist_parser-test-static</RootNamespace>
     <ProjectName>echconfiglist_parser-test</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">

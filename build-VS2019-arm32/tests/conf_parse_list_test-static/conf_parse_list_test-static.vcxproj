@@ -15,6 +15,7 @@
     <ProjectGuid>{6CD586F3-8A6E-48DC-AB4C-4A12FFA86CFC}</ProjectGuid>
     <RootNamespace>conf_parse_list_test-static</RootNamespace>
     <ProjectName>conf_parse_list_test</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
