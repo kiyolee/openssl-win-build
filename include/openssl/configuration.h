@@ -38,7 +38,7 @@ extern "C" {
 # endif
 #endif
 #endif
-# define OPENSSL_CONFIGURED_API 40000
+# define OPENSSL_CONFIGURED_API 40100
 # ifndef OPENSSL_RAND_SEED_OS
 #  define OPENSSL_RAND_SEED_OS
 # endif
@@ -59,6 +59,9 @@ extern "C" {
 #  define OPENSSL_NO_ASM
 # endif
 #endif
+# ifndef OPENSSL_NO_ATEXIT
+#  define OPENSSL_NO_ATEXIT
+# endif
 # ifndef OPENSSL_NO_BROTLI
 #  define OPENSSL_NO_BROTLI
 # endif
@@ -67,6 +70,9 @@ extern "C" {
 # endif
 # ifndef OPENSSL_NO_CRYPTO_MDEBUG
 #  define OPENSSL_NO_CRYPTO_MDEBUG
+# endif
+# ifndef OPENSSL_NO_CT_VALIDATION
+#  define OPENSSL_NO_CT_VALIDATION
 # endif
 # ifndef OPENSSL_NO_DEMOS
 #  define OPENSSL_NO_DEMOS
@@ -157,6 +163,9 @@ extern "C" {
 # endif
 # ifndef OPENSSL_NO_UNIT_TEST
 #  define OPENSSL_NO_UNIT_TEST
+# endif
+# ifndef OPENSSL_NO_UNIT_TESTS
+#  define OPENSSL_NO_UNIT_TESTS
 # endif
 #if defined(OPENSSL_STATIC_LIB) || defined(_M_ARM) || defined(_M_ARM64)
 # ifndef OPENSSL_NO_UPLINK

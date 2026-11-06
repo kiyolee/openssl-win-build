@@ -97,6 +97,7 @@
     <ClCompile Include="..\..\..\fuzz\cmp.c" />
     <ClCompile Include="..\..\..\fuzz\fuzz_rand.c" />
     <ClCompile Include="..\..\..\fuzz\test-corpus.c" />
+    <ClCompile Include="..\..\..\test\mfail\mfail.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

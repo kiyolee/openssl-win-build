@@ -98,6 +98,10 @@
     <ClCompile Include="..\..\ssl\d1_lib.c" />
     <ClCompile Include="..\..\ssl\d1_msg.c" />
     <ClCompile Include="..\..\ssl\d1_srtp.c" />
+    <ClCompile Include="..\..\ssl\d1_transcript.c" />
+    <ClCompile Include="..\..\ssl\dgram_demux.c" />
+    <ClCompile Include="..\..\ssl\dtls_conn_lookup.c" />
+    <ClCompile Include="..\..\ssl\dtls_record_rx.c" />
     <ClCompile Include="..\..\ssl\ech\ech_helper.c" />
     <ClCompile Include="..\..\ssl\ech\ech_internal.c" />
     <ClCompile Include="..\..\ssl\ech\ech_ssl_apis.c" />

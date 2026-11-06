@@ -12,8 +12,6 @@
 #include <openssl/httperr.h>
 #include "crypto/httperr.h"
 
-#ifndef OPENSSL_NO_HTTP
-
 #ifndef OPENSSL_NO_ERR
 
 static const ERR_STRING_DATA HTTP_str_reasons[] = {
@@ -86,6 +84,3 @@ int ossl_err_load_HTTP_strings(void)
 #endif
     return 1;
 }
-#else
-NON_EMPTY_TRANSLATION_UNIT
-#endif

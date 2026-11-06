@@ -16,12 +16,12 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">mkdir $(OutDir)..\_work 2&gt;nul
 mkdir $(OutDir)..\_work\static 2&gt;nul
 pushd ..\..\..
-$(PERL) -Ims\x86\static %(FullPath) --ordinals util\providers.num --name p_ossltest --libname p_ossltest --OS windows &gt; $(OutDir)..\_work\static\p_ossltest.def
+$(PERL) -Ims\arm\static %(FullPath) --ordinals util\providers.num --name p_ossltest --libname p_ossltest --OS windows &gt; $(OutDir)..\_work\static\p_ossltest.def
 popd</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">mkdir $(OutDir)..\_work 2&gt;nul
 mkdir $(OutDir)..\_work\static 2&gt;nul
 pushd ..\..\..
-$(PERL) -Ims\x86\static %(FullPath) --ordinals util\providers.num --name p_ossltest --libname p_ossltest --OS windows &gt; $(OutDir)..\_work\static\p_ossltest.def
+$(PERL) -Ims\arm\static %(FullPath) --ordinals util\providers.num --name p_ossltest --libname p_ossltest --OS windows &gt; $(OutDir)..\_work\static\p_ossltest.def
 popd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)..\_work\static\p_ossltest.def</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)..\_work\static\p_ossltest.def</Outputs>

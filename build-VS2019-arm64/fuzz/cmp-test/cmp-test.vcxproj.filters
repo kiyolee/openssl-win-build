@@ -24,5 +24,8 @@
     <ClCompile Include="..\..\..\fuzz\test-corpus.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\test\mfail\mfail.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

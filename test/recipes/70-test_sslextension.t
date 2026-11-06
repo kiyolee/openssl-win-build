@@ -39,7 +39,8 @@ use constant {
     UNSOLICITED_SERVER_NAME => 0,
     UNSOLICITED_SERVER_NAME_TLS13 => 1,
     UNSOLICITED_SCT => 2,
-    NONCOMPLIANT_SUPPORTED_GROUPS => 3
+    NONCOMPLIANT_SUPPORTED_GROUPS => 3,
+    UNKNOWN_SERVER_HELLO_TLS13 => 4
 };
 
 my $testtype;
@@ -147,7 +148,8 @@ sub inject_unsolicited_extension
     if ($proxy->flight != 1) {
         if ($sent_unsolisited_extension) {
             my $last_record = @{$proxy->record_list}[-1];
-            $fatal_alert = 1 if $last_record->is_fatal_alert(0);
+            my $alert = $last_record->is_fatal_alert(0);
+            $fatal_alert = $alert if $alert;
         }
         return;
     }
@@ -173,6 +175,8 @@ sub inject_unsolicited_extension
         $type = TLSProxy::Message::EXT_SCT;
     } elsif ($testtype == NONCOMPLIANT_SUPPORTED_GROUPS) {
         $type = TLSProxy::Message::EXT_SUPPORTED_GROUPS;
+    } elsif ($testtype == UNKNOWN_SERVER_HELLO_TLS13) {
+        $type = TLSProxy::Message::EXT_UNKNOWN;
     }
     $message->set_extension($type, $ext);
     $message->repack();
@@ -195,7 +199,7 @@ sub inject_cryptopro_extension
 
 # Test 1-2: Sending a duplicate extension should fail.
 $proxy->start() or plan skip_all => "Unable to start up Proxy for tests";
-plan tests => 8;
+plan tests => 9;
 ok($fatal_alert, "Duplicate ClientHello extension");
 
 SKIP: {
@@ -262,7 +266,7 @@ SKIP: {
 }
 
 SKIP: {
-    skip "TLS 1.3 disabled", 1
+    skip "TLS 1.3 disabled", 2
         if disabled("tls1_3") || (disabled("ec") && disabled("dh"));
     #Test 8: Inject an unsolicited extension (TLSv1.3)
     $fatal_alert = 0;
@@ -272,4 +276,14 @@ SKIP: {
     $proxy->clientflags("-noservername");
     $proxy->start();
     ok($fatal_alert, "Unsolicited server name extension (TLSv1.3)");
+
+    #Test 9: Inject an unknown extension in ServerHello (TLSv1.3)
+    $fatal_alert = 0;
+    $proxy->clear();
+    $proxy->filter(\&inject_unsolicited_extension);
+    $testtype = UNKNOWN_SERVER_HELLO_TLS13;
+    $proxy->clientflags("");
+    $proxy->start();
+    ok($fatal_alert == TLSProxy::Message::AL_DESC_UNSUPPORTED_EXTENSION,
+       "Unknown ServerHello extension (TLSv1.3)");
 }

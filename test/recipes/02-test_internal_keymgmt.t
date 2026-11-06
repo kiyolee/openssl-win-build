@@ -7,14 +7,16 @@
 # https://www.openssl.org/source/license.html
 
 use strict;
-use OpenSSL::Test qw(:DEFAULT bldtop_dir srctop_file);
+use OpenSSL::Test qw(:DEFAULT bldtop_dir srctop_file shlib_dir);
 use OpenSSL::Test::Utils;
+use Cwd qw(abs_path);
 
 setup("test_internal_keymgmt");
 
 plan tests => 1;
 
-$ENV{OPENSSL_MODULES} = bldtop_dir("test");
+#$ENV{OPENSSL_MODULES} = bldtop_dir("test");
+$ENV{OPENSSL_MODULES} = abs_path(shlib_dir());
 
 ok(run(test(["keymgmt_internal_test",
     srctop_file("test", "certs", "ee-cert.pem")])),

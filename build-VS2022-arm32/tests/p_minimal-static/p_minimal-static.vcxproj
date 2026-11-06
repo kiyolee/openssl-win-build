@@ -16,12 +16,12 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">mkdir $(OutDir)..\_work 2&gt;nul
 mkdir $(OutDir)..\_work\static 2&gt;nul
 pushd ..\..\..
-$(PERL) -Ims\x86\static %(FullPath) --ordinals util\providers.num --name p_minimal --libname p_minimal --OS windows &gt; $(OutDir)..\_work\static\p_minimal.def
+$(PERL) -Ims\arm\static %(FullPath) --ordinals util\providers.num --name p_minimal --libname p_minimal --OS windows &gt; $(OutDir)..\_work\static\p_minimal.def
 popd</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">mkdir $(OutDir)..\_work 2&gt;nul
 mkdir $(OutDir)..\_work\static 2&gt;nul
 pushd ..\..\..
-$(PERL) -Ims\x86\static %(FullPath) --ordinals util\providers.num --name p_minimal --libname p_minimal --OS windows &gt; $(OutDir)..\_work\static\p_minimal.def
+$(PERL) -Ims\arm\static %(FullPath) --ordinals util\providers.num --name p_minimal --libname p_minimal --OS windows &gt; $(OutDir)..\_work\static\p_minimal.def
 popd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)..\_work\static\p_minimal.def</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)..\_work\static\p_minimal.def</Outputs>

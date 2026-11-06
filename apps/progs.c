@@ -108,7 +108,9 @@ FUNCTION functions[] = {
 #ifndef OPENSSL_NO_MD4
     {FT_md, "md4", dgst_main, NULL, NULL},
 #endif
+#ifndef OPENSSL_NO_MD5
     {FT_md, "md5", dgst_main, NULL, NULL},
+#endif
     {FT_md, "sha1", dgst_main, NULL, NULL},
     {FT_md, "sha224", dgst_main, NULL, NULL},
     {FT_md, "sha256", dgst_main, NULL, NULL},

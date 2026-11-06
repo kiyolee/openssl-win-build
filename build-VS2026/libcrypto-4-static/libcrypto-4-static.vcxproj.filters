@@ -268,8 +268,11 @@
     <Filter Include="Source Files\crypto\slh_dsa">
       <UniqueIdentifier>{883b60be-bec2-4efe-b671-7aec84fea31f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\crypto\sha\x64">
+      <UniqueIdentifier>{996aa452-15a6-4947-bb3b-3ec6f25a97c0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\crypto\rbtree">
-      <UniqueIdentifier>{ed6dbae3-11f2-41b8-af0c-d3ed9d9675d5}</UniqueIdentifier>
+      <UniqueIdentifier>{263e942f-bd31-4bd6-aba2-1639d2c6dc87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2622,6 +2625,12 @@
     <ClCompile Include="..\..\crypto\sha\sha3_encode.c">
       <Filter>Source Files\crypto\sha</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\crypto\sha\sha3_x4_avx512vl.c">
+      <Filter>Source Files\crypto\sha\x64</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aes\aes_cbc_vaes_intrinsic.c">
+      <Filter>Source Files\crypto\aes</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\crypto\rbtree\rbtree.c">
       <Filter>Source Files\crypto\rbtree</Filter>
     </ClCompile>
@@ -2646,6 +2655,9 @@
       <Filter>Source Files\asm\x64</Filter>
     </CustomBuild>
     <CustomBuild Include="..\..\crypto\aes\asm\aesni-xts-avx512.pl">
+      <Filter>Source Files\asm\x64</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\crypto\aes\asm\aes-cbc-vaes-x86_64.pl">
       <Filter>Source Files\asm\x64</Filter>
     </CustomBuild>
     <CustomBuild Include="..\..\crypto\aes\asm\aes-cfb-avx512.pl">
@@ -2807,6 +2819,9 @@
     <CustomBuild Include="..\..\crypto\sha\asm\keccak1600-x86_64.pl">
       <Filter>Source Files\asm\x64</Filter>
     </CustomBuild>
+    <CustomBuild Include="..\..\crypto\sha\asm\keccak1600x4-avx512vl.pl">
+      <Filter>Source Files\asm\x64</Filter>
+    </CustomBuild>
     <CustomBuild Include="..\..\crypto\ec\asm\x25519-x86_64.pl">
       <Filter>Source Files\asm\x64</Filter>
     </CustomBuild>
@@ -2814,6 +2829,9 @@
       <Filter>Source Files\asm\x64</Filter>
     </CustomBuild>
     <CustomBuild Include="..\..\crypto\sm4\asm\sm4-x86_64.pl">
+      <Filter>Source Files\asm\x64</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\crypto\ml_dsa\asm\ml_dsa_ntt-x86_64.pl">
       <Filter>Source Files\asm\x64</Filter>
     </CustomBuild>
   </ItemGroup>

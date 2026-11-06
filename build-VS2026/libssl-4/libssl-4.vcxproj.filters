@@ -387,6 +387,18 @@
     <ClCompile Include="..\..\crypto\rbtree\rbtree.c">
       <Filter>Source Files\crypto\rbtree</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\ssl\dgram_demux.c">
+      <Filter>Source Files\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ssl\dtls_conn_lookup.c">
+      <Filter>Source Files\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ssl\dtls_record_rx.c">
+      <Filter>Source Files\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ssl\d1_transcript.c">
+      <Filter>Source Files\ssl</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\ssl\quic\quic_strm_reas.c">
       <Filter>Source Files\ssl\quic</Filter>
     </ClCompile>

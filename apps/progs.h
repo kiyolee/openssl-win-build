@@ -10,6 +10,9 @@
  * https://www.openssl.org/source/license.html
  */
 
+#if !defined(OSSL_APPS_PROGS_H)
+#define OSSL_APPS_PROGS_H
+
 #include "function.h"
 
 extern int asn1parse_main(int argc, char *argv[]);
@@ -125,3 +128,5 @@ extern const OPTIONS version_options[];
 extern const OPTIONS x509_options[];
 
 extern FUNCTION functions[];
+
+#endif /* !defined(OSSL_APPS_PROGS_H) */

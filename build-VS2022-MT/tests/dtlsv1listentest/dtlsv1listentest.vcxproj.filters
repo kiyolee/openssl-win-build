@@ -16,10 +16,16 @@
     <Filter Include="Source Files\ms">
       <UniqueIdentifier>{ad0fd74b-d676-4d1c-9fb0-810ed7151e6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\helpers">
+      <UniqueIdentifier>{f6c04b91-8bc5-4743-9119-8f6eb03ad733}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\test\dtlsv1listentest.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\helpers\ssltestlib.c">
+      <Filter>Source Files\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\ms\applink.c">
       <Filter>Source Files\ms</Filter>

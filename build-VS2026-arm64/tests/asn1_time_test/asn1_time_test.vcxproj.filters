@@ -21,12 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\crypto\ctype.c">
-      <Filter>Source Files\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\crypto\asn1\a_time.c">
-      <Filter>Source Files\crypto\asn1</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\test\asn1_time_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -31,10 +31,10 @@ extern "C" {
 # define OPENSSL_VERSION_MAJOR  4
 /* clang-format on */
 /* clang-format off */
-# define OPENSSL_VERSION_MINOR  0
+# define OPENSSL_VERSION_MINOR  1
 /* clang-format on */
 /* clang-format off */
-# define OPENSSL_VERSION_PATCH  3
+# define OPENSSL_VERSION_PATCH  0
 /* clang-format on */
 
 /*
@@ -87,10 +87,10 @@ extern "C" {
  * OPENSSL_VERSION_BUILD_METADATA_STR appended.
  */
 /* clang-format off */
-# define OPENSSL_VERSION_STR "4.0.3"
+# define OPENSSL_VERSION_STR "4.1.0"
 /* clang-format on */
 /* clang-format off */
-# define OPENSSL_FULL_VERSION_STR "4.0.3"
+# define OPENSSL_FULL_VERSION_STR "4.1.0"
 /* clang-format on */
 
 /*
@@ -99,7 +99,7 @@ extern "C" {
  * These strings are defined separately to allow them to be parsable.
  */
 /* clang-format off */
-# define OPENSSL_RELEASE_DATE "29 Sep 2026"
+# define OPENSSL_RELEASE_DATE "23 Oct 2026"
 /* clang-format on */
 
 /*
@@ -107,7 +107,7 @@ extern "C" {
  */
 
 /* clang-format off */
-# define OPENSSL_VERSION_TEXT "OpenSSL 4.0.3 29 Sep 2026"
+# define OPENSSL_VERSION_TEXT "OpenSSL 4.1.0 23 Oct 2026"
 /* clang-format on */
 
 /* clang-format off */
